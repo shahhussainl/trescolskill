@@ -1,9 +1,19 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState, } from "react";
+import { useCourseContext } from "../context/CourseContext";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import "animate.css";
 import image from "../assets/logo.png";
 import abbas from "../assets/abbas.png";
+import violate from "../assets/vilate.png"
+import kid from "../assets/kid.png"
+import car1 from "../assets/car1.png"
+import car2 from "../assets/car2.png"
+import car3 from "../assets/car3.png"
+import ahmad from "../assets/ahmad.png"
+import { useNavigate } from "react-router-dom";
+
+
 
 // Dummy course data
 const courses = [
@@ -25,7 +35,7 @@ const courses = [
   {
     id: 2,
     title: "Making Best Use of Artificial Intelligence",
-    image: abbas,
+    image: violate,
     trainer: {
       name: "Dr Sanaullah",
       avatar: "https://randomuser.me/api/portraits/men/2.jpg",
@@ -40,7 +50,7 @@ const courses = [
   {
     id: 3,
     title: "Secure Websites/Email Configuration, Hosting on Linux",
-    image: abbas,
+    image: kid,
     trainer: {
       name: "Rao Nazra",
       avatar: "https://randomuser.me/api/portraits/women/1.jpg",
@@ -54,13 +64,13 @@ const courses = [
   },
   {
     id: 4,
-    title: "Introduction to Cyber Security",
-    image: abbas,
+    title: "Introduction to Cyber Security and database and Data mining",
+    image: car1,
     trainer: {
       name: "Ali Khan",
       avatar: "https://randomuser.me/api/portraits/men/3.jpg",
     },
-    description: "Basics of cybersecurity for everyone...",
+    description: "Basics of cybersecurity for everyone Basics of cybersecurity for everyone Basics of cybersecurity for everyone...",
     postedOn: "2025-05-01",
     applyBefore: "2025-07-01",
     duration: "3 days",
@@ -68,13 +78,13 @@ const courses = [
   },
   {
     id: 5,
-    title: "Data Science with Python",
-    image: abbas,
+    title: "Data Science with Python, Artifical intellgence",
+    image: car2,
     trainer: {
       name: "Ayesha Nazeer",
       avatar: "https://randomuser.me/api/portraits/women/4.jpg",
     },
-    description: "Learn Python for data analysis and visualization...",
+    description: "Learn Python for data analysis and visualization Learn Python for data analysis and visualization Learn Python...",
     postedOn: "2025-04-10",
     applyBefore: "2025-06-15",
     duration: "5 days",
@@ -82,13 +92,27 @@ const courses = [
   },
   {
     id: 6,
-    title: "Data Science with Python",
-    image: abbas,
+    title: "Data Science with Python, Artifical intellgence",
+    image: car3,
     trainer: {
       name: "Ayesha Nazeer",
       avatar: "https://randomuser.me/api/portraits/women/4.jpg",
     },
-    description: "Learn Python for data analysis and visualization...",
+    description: "Learn Python for data analysis and visualization Learn Python for data analysis and visualization Learn Python for data...",
+    postedOn: "2025-04-10",
+    applyBefore: "2025-06-15",
+    duration: "5 days",
+    fees: "15000PKR",
+  },
+  {
+    id: 7,
+    title: "Data Science with Python, Artifical intellgence",
+    image: ahmad,
+    trainer: {
+      name: "Ayesha Nazeer",
+      avatar: "https://randomuser.me/api/portraits/women/4.jpg",
+    },
+    description: "Learn Python for data analysis and visualization Learn Python for data analysis and visualization Learn Python for data...",
     postedOn: "2025-04-10",
     applyBefore: "2025-06-15",
     duration: "5 days",
@@ -145,41 +169,66 @@ function Particles() {
   );
 }
 
-function scrollCarousel(direction) {
-  const carousel = document.getElementById("carousel");
-  const scrollAmount = 200; // slightly more than card width + margin
-
-  if (direction === "left") {
-    carousel.scrollLeft -= scrollAmount;
-  } else {
-    carousel.scrollLeft += scrollAmount;
-  }
-}
-
 // Hero Section
-function Hero() {
+function Home() {
+
+  const [currentStartIndex, setCurrentStartIndex] = useState(0);
+  const [cardsPerPage, setCardsPerPage] = useState(getCardsPerPage());
+
+  function getCardsPerPage() {
+    if (window.innerWidth < 640) return 1;
+    if (window.innerWidth < 1024) return 2;
+    return 3;
+  }
+
+  useEffect(() => {
+    const handleResize = () => {
+      setCardsPerPage(getCardsPerPage());
+      setCurrentStartIndex(0); // reset to start when resizing
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const maxIndex = Math.max(0, courses.length - cardsPerPage);
+  const visibleCourses = courses.slice(
+    currentStartIndex,
+    currentStartIndex + cardsPerPage
+  );
+
+  const handleArrowClick = (direction) => {
+  if (direction === "left") {
+    setCurrentStartIndex((prev) => Math.max(prev - 1, 0));
+  } else {
+    setCurrentStartIndex((prev) => Math.min(prev + 1, maxIndex));
+  }
+};
+
+const { setCourses } = useCourseContext();
+const navigate = useNavigate();
+
+const handleCourseClick = () => {
+  setCourses(courses); // store the course data in context
+  navigate("/courses");
+};
+
+
   return (
     <>
+      {/* Hero section */}
       <section className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
         <img
           src={image}
           alt="Trescol Background"
           className="absolute inset-0 w-full h-full object-cover opacity-60 z-0"
         />
-
-        {/* 3D Particles */}
         <div className="absolute inset-0 z-0 opacity-30">
           <Canvas camera={{ position: [0, 0, 10], fov: 75 }}>
             <Particles />
           </Canvas>
         </div>
-
-        {/* Glows */}
         <div className="absolute top-10 left-10 w-40 h-40 bg-purple-300 opacity-60 blur-3xl rounded-full z-0 animate__animated animate__zoomIn animate__infinite animate__slow"></div>
         <div className="absolute bottom-10 right-10 w-48 h-48 bg-pink-300 opacity-50 blur-3xl rounded-full z-0 animate__animated animate__zoomIn animate__infinite animate__slower"></div>
-
-        {/* Text */}
         <div className="relative z-10 text-center px-4 animate__animated animate__fadeInUp animate__slower">
           <h2 className="text-sm md:text-base font-semibold uppercase tracking-widest text-gray-700 mb-2">
             Admission'2025
@@ -202,95 +251,101 @@ function Hero() {
         </div>
       </section>
 
-  
       {/* Courses Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
-            Featured Courses
-          </h2>
+      {/* Courses Section */}
+<section className="py-16 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
+      Featured Courses
+    </h2>
 
-          {/* Carousel Wrapper */}
-          <div className="relative">
-            {/* Left Arrow */}
-            <button
-              onClick={() => scrollCarousel("left")}
-               className="absolute -left-20 top-1/2 -translate-y-1/2 z-10 bg-teal-500 text-white p-3 rounded-full hover:bg-teal-600 transition"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
+    {/* Carousel Wrapper */}
+    <div className="relative flex items-center">
+      {/* Left Arrow */}
+      <button
+        onClick={() => handleArrowClick("left")}
+        className="absolute left-0 z-10 bg-teal-500 text-white p-3 rounded-full hover:bg-teal-600 transition"
+        style={{ transform: "translateX(-50%)" }}
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
 
-            {/* Right Arrow */}
-            <button
-              onClick={() => scrollCarousel("right")}
-              className="absolute -right-20 top-1/2 -translate-y-1/2 z-10 bg-teal-500 text-white p-3 rounded-full hover:bg-teal-600 transition"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-
-            {/* Scrollable Carousel */}
-            <div
-              id="carousel"
-              className="flex gap-6 overflow-x-auto scroll-smooth pb-4"
-              style={{ scrollBehavior: "smooth" }}
-            >
-              {courses.map((course) => (
-                <div
-                  key={course.id}
-                  className="min-w-[300px] max-w-[300px] bg-white rounded-xl shadow-md overflow-hidden transition hover:shadow-xl flex-shrink-0"
-                >
-                  <img
-                    src={course.image}
-                    alt={course.title}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-5">
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">
-                      {course.title}
-                    </h3>
-                    <div className="flex items-center gap-3 mb-2">
-                      <img
-                        src={course.trainer.avatar}
-                        alt={course.trainer.name}
-                        className="w-8 h-8 rounded-full"
-                      />
-                      <span className="text-sm text-gray-600">
-                        by {course.trainer.name}
-                      </span>
-                    </div>
-                    <p className="text-sm text-gray-700 mb-4">
-                      {course.description}
-                    </p>
-                    <ul className="text-sm text-gray-500 mb-4 space-y-1">
-                      <li>
-                        <strong>Posted on:</strong> {course.postedOn}
-                      </li>
-                      <li>
-                        <strong>Apply before:</strong> {course.applyBefore}
-                      </li>
-                      <li>
-                        <strong>Duration:</strong> {course.duration}
-                      </li>
-                      <li>
-                        <strong>Fees:</strong> {course.fees}
-                      </li>
-                    </ul>
-                    <button className="w-full bg-teal-500 text-white py-2 rounded-md hover:bg-teal-600 transition">
-                      Apply Now
-                    </button>
-                  </div>
-                </div>
-              ))}
+      {/* Cards Grid */}
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-12">
+        {visibleCourses.map((course) => (
+          <div
+            key={course.id}
+            className="bg-white rounded-xl shadow-md overflow-hidden transition hover:shadow-xl"
+          >
+            <img
+              src={course.image}
+              alt={course.title}
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-5">
+              <h3 className="text-xl font-bold text-gray-800 mb-2">
+                {course.title}
+              </h3>
+              <div className="flex items-center gap-3 mb-2">
+                <img
+                  src={course.trainer.avatar}
+                  alt={course.trainer.name}
+                  className="w-8 h-8 rounded-full"
+                />
+                <span className="text-sm text-gray-600">
+                  by {course.trainer.name}
+                </span>
+              </div>
+              <p className="text-sm text-gray-700 mb-4">
+                {course.description}
+              </p>
+              <ul className="text-sm text-gray-500 mb-4 space-y-1">
+                <li>
+                  <strong>Posted on:</strong> {course.postedOn}
+                </li>
+                <li>
+                  <strong>Apply before:</strong> {course.applyBefore}
+                </li>
+                <li>
+                  <strong>Duration:</strong> {course.duration}
+                </li>
+                <li>
+                  <strong>Fees:</strong> {course.fees}
+                </li>
+              </ul>
+              <button className="w-full bg-teal-500 text-white py-2 rounded-md hover:bg-teal-600 transition">
+                Apply Now
+              </button>
             </div>
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
+
+      {/* Right Arrow */}
+      <button
+        onClick={() => handleArrowClick("right")}
+        className="absolute right-0 z-10 bg-teal-500 text-white p-3 rounded-full hover:bg-teal-600 transition"
+        style={{ transform: "translateX(50%)" }}
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+
+    {/* View All Courses Button */}
+    <div className="mt-10 text-center">
+      <button onClick={handleCourseClick} className="px-6 py-3 bg-teal-500 text-white rounded-full hover:bg-teal-600 transition">
+        View All Courses
+      </button>
+    </div>
+  </div>
+</section>
+
     </>
   );
 }
 
-export default Hero;
+export default Home;
