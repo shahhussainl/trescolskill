@@ -233,10 +233,10 @@ const handleCourseClick = () => {
           <h2 className="text-sm md:text-base font-semibold uppercase tracking-widest text-gray-700 mb-2">
             Admission'2025
           </h2>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-3">
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-3">
             Leadership & Professional
           </h1>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-3">
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-3">
             Development Center
           </h1>
           <h3 className="text-lg md:text-2xl font-semibold text-gray-800 mb-4">
@@ -255,7 +255,7 @@ const handleCourseClick = () => {
       {/* Courses Section */}
 <section className="py-16 bg-gray-50">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
+    <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
       Featured Courses
     </h2>
 
