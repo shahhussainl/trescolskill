@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState, } from "react";
 import { useCourseContext } from "../context/CourseContext";
+import { useNewsContext } from "../context/NewsContext";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import "animate.css";
@@ -11,9 +12,70 @@ import car1 from "../assets/car1.png"
 import car2 from "../assets/car2.png"
 import car3 from "../assets/car3.png"
 import ahmad from "../assets/ahmad.png"
+import newsImg from "../assets/abbas.png"; 
 import { useNavigate } from "react-router-dom";
 
+const newsList = [
+  {
+    id: 1,
+    image: newsImg,
+    date: "2024-08-19 09:25:32",
+    postedBy: "Admin",
+    title: "Open Source Intelligence (OSINT)",
+    description: `"What is OSINT? A Beginner's Guide..."`,
+    fullDescription: `"What is OSINT? A Beginner's Guide to Open Source Intelligence"
+    Introduction to OSINT
+    Explanation of common terms and concepts
+    Use cases for OSINT in cybersecurity, law enforcement, and business
+    "Top 10 Free OSINT Tools Every Investigator Should Know"
+    A rundown of free tools available for OSINT
+    Links to resources for each tool
+    How and when to use each tool
+    ...
+    (copy the full content from your screenshot text)
+    `,
+  },
 
+  {
+    id: 2,
+    image: newsImg,
+    date: "2024-08-19 09:25:32",
+    postedBy: "Admin",
+    title: "Open Source Intelligence (OSINT)",
+    description: `"What is OSINT? A Beginner's Guide..."`,
+    fullDescription: `"What is OSINT? A Beginner's Guide to Open Source Intelligence"
+    Introduction to OSINT
+    Explanation of common terms and concepts
+    Use cases for OSINT in cybersecurity, law enforcement, and business
+    "Top 10 Free OSINT Tools Every Investigator Should Know"
+    A rundown of free tools available for OSINT
+    Links to resources for each tool
+    How and when to use each tool
+    ...
+    (copy the full content from your screenshot text)
+    `,
+  },
+
+  {
+    id: 3,
+    image: newsImg,
+    date: "2024-08-19 09:25:32",
+    postedBy: "Admin",
+    title: "Open Source Intelligence (OSINT)",
+    description: `"What is OSINT? A Beginner's Guide..."`,
+    fullDescription: `"What is OSINT? A Beginner's Guide to Open Source Intelligence"
+    Introduction to OSINT
+    Explanation of common terms and concepts
+    Use cases for OSINT in cybersecurity, law enforcement, and business
+    "Top 10 Free OSINT Tools Every Investigator Should Know"
+    A rundown of free tools available for OSINT
+    Links to resources for each tool
+    How and when to use each tool
+    ...
+    (copy the full content from your screenshot text)
+    `,
+  },
+];
 
 // Dummy course data
 const courses = [
@@ -204,6 +266,8 @@ function Home() {
   }
 };
 
+
+const { setSelectedNews } = useNewsContext();
 const { setCourses } = useCourseContext();
 const navigate = useNavigate();
 
@@ -211,6 +275,12 @@ const handleCourseClick = () => {
   setCourses(courses); // store the course data in context
   navigate("/courses");
 };
+
+
+const handleReadMore = (item) => {
+    setSelectedNews(item);
+    navigate("/news");
+  };
 
 
   return (
@@ -343,6 +413,55 @@ const handleCourseClick = () => {
     </div>
   </div>
 </section>
+
+<section className="py-16 bg-gradient-to-br from-teal-200/60 to-teal-100/40 backdrop-blur-sm">
+  <div className="max-w-7xl mx-auto px-4">
+    <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
+      News & Updates
+    </h2>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center ml-14 mt-24">
+      {newsList.map((item) => (
+        <div
+          key={item.id}
+          className="relative flex w-80 flex-col rounded-xl bg-white/70 backdrop-blur-md text-gray-700 shadow-md"
+        >
+          <div className="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-gradient-to-r from-teal-500 to-teal-600 shadow-lg shadow-teal-500/40">
+            <img
+              src={item.image}
+              alt={item.title}
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+          <div className="p-6">
+            <p className="text-xs text-gray-500 mb-1">📅 {item.date}</p>
+            <p className="text-xs text-gray-600 mb-2">
+              🖋️ Posted by: <span className="font-semibold">{item.postedBy}</span>
+            </p>
+            <h5 className="mb-2 text-xl font-semibold text-blue-gray-900">
+              {item.title}
+            </h5>
+            <p className="text-sm text-gray-700">
+              {item.description.length > 80
+                ? item.description.slice(0, 80) + "..."
+                : item.description}
+            </p>
+          </div>
+          <div className="p-6 pt-0">
+            <button
+              type="button"
+              onClick={() => handleReadMore(item)}
+              className="rounded-lg bg-teal-400 py-3 px-6 text-xs font-bold uppercase text-white shadow-md transition-all hover:shadow-lg hover:bg-teal-600 focus:outline-none"
+            >
+              Read More
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
 
     </>
   );
