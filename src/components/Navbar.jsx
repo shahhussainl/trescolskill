@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { Menu, X, Upload } from 'lucide-react';
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { Menu, X, Upload } from "lucide-react";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,13 +10,13 @@ function Navbar() {
   };
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Courses', path: '/courses' },
-    { name: 'News', path: '/news' },
-    { name: 'Teachers', path: '/teachers' },
-    { name: 'Contact', path: '/contact' },
-    { name: 'FAQ', path: '/faq' },
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Courses", path: "/courses" },
+    { name: "News", path: "/news" },
+    { name: "Teachers", path: "/teachers" },
+    { name: "Contact", path: "/contact" },
+    { name: "FAQ", path: "/faq" },
   ];
 
   return (
@@ -35,8 +35,8 @@ function Navbar() {
                   className={({ isActive }) =>
                     `px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                       isActive
-                        ? 'bg-teal-800 text-white'
-                        : 'text-teal-100 hover:bg-teal-700 hover:text-white'
+                        ? "bg-teal-800 text-white"
+                        : "text-teal-100 hover:bg-teal-700 hover:text-white"
                     }`
                   }
                 >
@@ -61,7 +61,6 @@ function Navbar() {
           </div>
         </div>
       </div>
-
       {isOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
@@ -72,8 +71,8 @@ function Navbar() {
                 className={({ isActive }) =>
                   `block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                     isActive
-                      ? 'bg-teal-800 text-white'
-                      : 'text-teal-100 hover:bg-teal-700 hover:text-white'
+                      ? "bg-teal-800 text-white"
+                      : "text-teal-100 hover:bg-teal-700 hover:text-white"
                   }`
                 }
                 onClick={toggleMenu}
