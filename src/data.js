@@ -5,7 +5,7 @@ import course3 from "./assets/course3.jpeg";
 import course4 from "./assets/course4.png";
 import course5 from "./assets/course5.jpg";
 import course6 from "./assets/course6.jpg";
-import course7 from "./assets/course6.jpg"; // Note: course6.jpg reused for course7
+import course7 from "./assets/course6.jpg"; 
 import teacher1 from "./assets/teacher1.jpeg";
 import teacher2 from "./assets/teacher2.jpeg";
 import teacher3 from "./assets/teacher3.jpeg";
@@ -18,118 +18,97 @@ import newsImg3 from "./assets/newsimg3.jpeg";
 export const courses = [
   {
     id: 1,
-    title: "Secure Your Digital Life with A Hands-On Workshop!",
+    title: "Secure Email System + Secure Web Series",
     image: course1,
     trainer: {
       name: "Rizwan Saeed",
       avatar: "https://randomuser.me/api/portraits/men/1.jpg",
     },
     description:
-      "Are you truly safe online? Your personal data, devices, and family's security are at risk if you're not taking the right steps...",
+      "Protect your digital communications from modern threats with hands-on security tools and real-time defense techniques.",
     postedOn: "2025-03-01",
     applyBefore: "2025-07-07",
-    duration: "1 day",
+    duration: "20 Hours ",
+    Venue: "trescol",
     fees: "20000PKR",
   },
   {
     id: 2,
-    title: "Making Best Use of Artificial Intelligence",
+    title: "Secure Yourself ",
     image: course2,
     trainer: {
       name: "Dr Sanaullah",
       avatar: "https://randomuser.me/api/portraits/men/2.jpg",
     },
     description:
-      "Preliminary working knowledge of computers assumed. Designed for everyone interested in AI and social media applications...",
+      "Master the fundamental practices of digital self-defense. Perfect for beginners looking to take control of their personal cyber safety. ",
     postedOn: "2025-02-25",
     applyBefore: "2025-04-28",
-    duration: "7 days",
+    duration: "10 Hours ",
+    Venue: "trescol",
     fees: "11000PKR",
   },
   {
     id: 3,
-    title: "Secure Websites/Email Configuration, Hosting on Linux",
+    title: "Secure Configuration for Internet (Proxy, DNS, FWs) ",
     image: course3,
     trainer: {
       name: "Rao Nazra",
       avatar: "https://randomuser.me/api/portraits/women/1.jpg",
     },
     description:
-      "Covers the essentials of configuring, hosting, and testing secure websites and applications and email services on Linux...",
+      "Configure firewalls, DNS, and proxy settings like a pro. This course gets under the hood of your network’s first line of defense. ",
     postedOn: "2025-04-20",
     applyBefore: "2025-03-31",
-    duration: "2 days",
+    duration: "20 Hours ",
+    Venue: "trescol",
     fees: "9000PKR",
   },
   {
     id: 4,
-    title: "Introduction to Cyber Security and Database and Data Mining",
+    title: "AI for Everyone ",
     image: course4,
     trainer: {
       name: "Ali Khan",
       avatar: "https://randomuser.me/api/portraits/men/3.jpg",
     },
     description:
-      "Basics of cybersecurity for everyone Basics of cybersecurity for everyone Basics of cybersecurity for everyone...",
+      "Break through the buzzwords and understand how AI can shape industries — and your future career. No prior experience needed. ",
     postedOn: "2025-05-01",
     applyBefore: "2025-07-01",
-    duration: "3 days",
+    duration: "10 Hours ",
+    Venue: "trescol",
     fees: "7500PKR",
   },
   {
     id: 5,
-    title: "Data Science with Python, Artificial Intelligence",
-    image: course5,
-    trainer: {
-      name: "Ayesha Nazeer",
-      avatar: "https://randomuser.me/api/portraits/women/4.jpg",
-    },
-    description:
-      "Learn Python for data analysis and visualization Learn Python for data analysis and visualization Learn Python...",
-    postedOn: "2025-04-10",
-    applyBefore: "2025-06-15",
-    duration: "5 days",
-    fees: "15000PKR",
-  },
-  {
-    id: 6,
-    title: "Data Science with Python, Artificial Intelligence",
+    title: " VPNs – Secure Data Transfer + Video Conferencing",
     image: course6,
     trainer: {
       name: "Ayesha Nazeer",
       avatar: "https://randomuser.me/api/portraits/women/4.jpg",
     },
     description:
-      "Learn Python for data analysis and visualization Learn Python for data analysis and visualization Learn Python for data...",
+      "Master the art of encrypted communication and secure data movement across networks with modern VPN technologies.",
     postedOn: "2025-04-10",
     applyBefore: "2025-06-15",
-    duration: "5 days",
+    duration: "20 Hours",
+    Venue: "trescol",
     fees: "15000PKR",
   },
-  {
-    id: 7,
-    title: "Data Science with Python, Artificial Intelligence",
-    image: course7,
-    trainer: {
-      name: "Ayesha Nazeer",
-      avatar: "https://randomuser.me/api/portraits/women/4.jpg",
-    },
-    description:
-      "Learn Python for data analysis and visualization Learn Python for data analysis and visualization Learn Python for data...",
-    postedOn: "2025-04-10",
-    applyBefore: "2025-06-15",
-    duration: "5 days",
-    fees: "15000PKR",
-  },
+  
+   
 ];
 
 export const teachers = [
   {
     id: 1,
-    name: "Rizwan Saeed",
-    designation: "Cyber Security Expert",
+    name: "Rao Nazar Iqbal ",
+    designation: "Director of Cyber Security | Information Security Strategist",
     image: teacher1,
-    bio: "Over 10 years of experience in ethical hacking, OSINT, and secure networking.",
+    bio: "Mr. Rao Nazar Iqbal is a seasoned cybersecurity strategist with over two decades of experience designing and securing digital infrastructures across diverse industries. As Director of Cyber Security, he brings a wealth of real-world expertise in system administration, GRC, firewall management, VPN technologies, and Linux/BSD environments. His ability to simplify complex security architectures into practical, real-world applications has made him a sought-after trainer and mentor in the South Asian tech ecosystem. He is especially recognized for his Urdu-based cybersecurity tutorials, empowering learners in their native language. His sessions are known for live demonstrations, scenario-based learning, and mission-critical insights. ",
+    Languages: " Urdu and English",
+    Specialties: "GRC, Linux/BSD VPNs, Network/Firewall Security",
     social: {
       linkedin: "https://linkedin.com/in/rizwan-saeed",
       twitter: "https://twitter.com/rizwansaeed",
@@ -139,10 +118,12 @@ export const teachers = [
   },
   {
     id: 2,
-    name: "Dr Sanaullah",
-    designation: "AI Specialist",
+    name: "Dr. Hussain Mureed",
+    designation: "Special Guest Speaker ",
     image: teacher2,
-    bio: "Focused on AI and Machine Learning applications in education and business.",
+    bio: "Hussain Mureed is a modern tech educator focused on the intersection of Artificial Intelligence, data privacy, and human-centric cybersecurity. With a background in research and real-world application of AI tools in cybersecurity awareness, Dr. Hussain simplifies emerging technologies for everyday users. He leads foundational courses on personal digital safety and AI understanding, helping learners develop critical thinking and a responsible approach to the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable.",
+    Languages: "English, Urdu",
+    Specialties: "AI for beginners, digital privacy, cybersecurity awareness",
     social: {
       linkedin: "https://linkedin.com/in/dr-sanaullah",
       twitter: "https://twitter.com/drsanaullah",

@@ -74,7 +74,7 @@ function Courses() {
                     </li>
                   </ul>
                   <button className="w-full bg-teal-500 text-white py-2 rounded-md hover:bg-teal-600 transition">
-                    Apply Now
+                    Register Now
                   </button>
                 </div>
               </div>
