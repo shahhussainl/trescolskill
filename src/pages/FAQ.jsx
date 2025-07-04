@@ -20,7 +20,7 @@ function Contact() {
           </button>
         </div>
         <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-          Contact Us
+          Questions and answers
         </h2>
         <p className="text-gray-700 leading-relaxed">
           Get in touch with us for any inquiries or support. Email us at
