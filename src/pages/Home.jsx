@@ -5,7 +5,7 @@ import { useTeacherContext } from "../context/TeacherContext";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import "animate.css";
-import sliderImg from "../assets/slider1.jpg";
+import sliderImg from "../assets/sliderimage.jpg";
 import course1 from "../assets/course1.png";
 import course2 from "../assets/course2.png";
 import course3 from "../assets/course3.jpeg";
@@ -583,57 +583,56 @@ function Home() {
       </section>
 
       {/* New Section */}
-     <section className="py-16 bg-gradient-to-br from-teal-200/60 to-teal-100/40 backdrop-blur-sm">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
-      News & Updates
-    </h2>
+      <section className="py-16 bg-gradient-to-br from-teal-200/60 to-teal-100/40 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
+            News & Updates
+          </h2>
 
-    <div className="relative flex items-center mt-24">
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-12">
-        {newsList.map((item) => (
-          <div
-            key={item.id}
-            className="relative flex w-full flex-col rounded-xl bg-white/70 backdrop-blur-md text-gray-700 shadow-md"
-          >
-            <div className="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-gradient-to-r from-teal-500 to-teal-600 shadow-lg shadow-teal-500/40">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-full object-cover object-center"
-              />
-            </div>
-            <div className="p-6">
-              <p className="text-xs text-gray-500 mb-1">📅 {item.date}</p>
-              <p className="text-xs text-gray-600 mb-2">
-                🖋️ Posted by:{" "}
-                <span className="font-semibold">{item.postedBy}</span>
-              </p>
-              <h5 className="mb-2 text-xl font-semibold text-blue-gray-900">
-                {item.title}
-              </h5>
-              <p className="text-sm text-gray-700">
-                {item.description.length > 80
-                  ? item.description.slice(0, 80) + "..."
-                  : item.description}
-              </p>
-            </div>
-            <div className="p-6 pt-0">
-              <button
-                type="button"
-                onClick={() => handleReadMore(item)}
-                className="rounded-lg bg-teal-400 py-3 px-6 text-xs font-bold uppercase text-white shadow-md transition-all hover:shadow-lg hover:bg-teal-600 focus:outline-none"
-              >
-                Read More
-              </button>
+          <div className="relative flex items-center mt-20">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-12">
+              {newsList.map((item) => (
+                <div
+                  key={item.id}
+                  className="relative flex w-full flex-col rounded-xl bg-white/70 backdrop-blur-md text-gray-700 shadow-md"
+                >
+                  <div className="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-gradient-to-r from-teal-500 to-teal-600 shadow-lg shadow-teal-500/40">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <p className="text-xs text-gray-500 mb-1">📅 {item.date}</p>
+                    <p className="text-xs text-gray-600 mb-2">
+                      🖋️ Posted by:{" "}
+                      <span className="font-semibold">{item.postedBy}</span>
+                    </p>
+                    <h5 className="mb-2 text-xl font-semibold text-blue-gray-900">
+                      {item.title}
+                    </h5>
+                    <p className="text-sm text-gray-700">
+                      {item.description.length > 80
+                        ? item.description.slice(0, 80) + "..."
+                        : item.description}
+                    </p>
+                  </div>
+                  <div className="p-6 pt-0">
+                    <button
+                      type="button"
+                      onClick={() => handleReadMore(item)}
+                      className="rounded-lg bg-teal-400 py-3 px-6 text-xs font-bold uppercase text-white shadow-md transition-all hover:shadow-lg hover:bg-teal-600 focus:outline-none"
+                    >
+                      Read More
+                    </button>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
-
+        </div>
+      </section>
 
       <section className="relative h-[570px] bg-teal-800 text-center text-white flex flex-col items-center justify-center overflow-visible">
         <VideoModal
@@ -642,7 +641,9 @@ function Home() {
           videoUrl={videoUrl}
         />
 
-        <p className="text-2xl uppercase tracking-widest mb-2 mt-96">Take a Look</p>
+        <p className="text-2xl uppercase tracking-widest mb-2 mt-96">
+          Take a Look
+        </p>
         <h2 className="text-6xl font-bold mb-6">Video Tour on Trescol</h2>
 
         <div className="relative z-10 transform translate-y-1/1 mt-6">
