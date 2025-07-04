@@ -1,12 +1,12 @@
-import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar.jsx';
-import Home from './pages/Home.jsx';
-import About from './pages/About.jsx';
-import Courses from './pages/Courses.jsx';
-import News from './pages/News.jsx';
-import Teachers from './pages/Teachers.jsx';
-import Contact from './pages/Contact.jsx';
-import FAQ from './pages/FAQ.jsx';
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Courses from "./pages/Courses";
+import News from "./pages/News";
+import Teachers from "./pages/Teachers";
+import Contact from "./pages/Contact";
+import FAQ from "./pages/FAQ";
 
 function App() {
   return (
