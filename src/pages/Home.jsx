@@ -5,7 +5,7 @@ import { useTeacherContext } from "../context/TeacherContext";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import "animate.css";
-import sliderImg from "../assets/sliderimage.jpg";
+import sliderImg from "../assets/slider1.jpg";
 import course1 from "../assets/course1.png";
 import course2 from "../assets/course2.png";
 import course3 from "../assets/course3.jpeg";
