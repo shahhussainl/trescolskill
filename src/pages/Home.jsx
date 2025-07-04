@@ -5,16 +5,23 @@ import { useTeacherContext } from "../context/TeacherContext";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import "animate.css";
-import image from "../assets/logo.png";
-import abbas from "../assets/abbas.png";
-import violate from "../assets/vilate.png";
-import kid from "../assets/kid.png";
-import car1 from "../assets/car1.png";
-import car2 from "../assets/car2.png";
-import car3 from "../assets/car3.png";
-import ahmad from "../assets/ahmad.png";
-import newsImg from "../assets/abbas.png";
-import { FaLinkedin, FaTwitter } from "react-icons/fa";
+import sliderImg from "../assets/sliderimage.jpg";
+import course1 from "../assets/course1.png";
+import course2 from "../assets/course2.png";
+import course3 from "../assets/course3.jpeg";
+import course4 from "../assets/course4.png";
+import course5 from "../assets/course5.jpg";
+import course6 from "../assets/course6.jpg";
+import course7 from "../assets/course6.jpg";
+import teacher1 from "../assets/teacher1.jpeg";
+import teacher2 from "../assets/teacher2.jpeg";
+import teacher3 from "../assets/teacher3.jpeg";
+import teacher4 from "../assets/teacher4.jpeg";
+import teacher5 from "../assets/teacher5.jpeg";
+import newsImg1 from "../assets/newsimg1.png";
+import newsImg2 from "../assets/newsimg2.jpeg";
+import newsImg3 from "../assets/newsimg3.jpeg";
+
 import { useNavigate } from "react-router-dom";
 
 // Teachers list
@@ -24,7 +31,7 @@ const teachers = [
     id: 1,
     name: "Rizwan Saeed",
     designation: "Cyber Security Expert",
-    image: abbas,
+    image: teacher1,
     bio: "Over 10 years of experience in ethical hacking, OSINT, and secure networking.",
     social: {
       linkedin: "https://linkedin.com/in/...",
@@ -37,9 +44,9 @@ const teachers = [
     id: 2,
     name: "Dr Sanaullah",
     designation: "AI Specialist",
-    image: violate,
+    image: teacher2,
     bio: "Focused on AI and Machine Learning applications in education and business.",
-     social: {
+    social: {
       linkedin: "https://linkedin.com/in/...",
       twitter: "https://twitter.com/...",
       facebook: "https://facebook.com/...",
@@ -50,9 +57,9 @@ const teachers = [
     id: 3,
     name: "Rao Nazra",
     designation: "Linux & DevOps Instructor",
-    image: kid,
+    image: teacher3,
     bio: "Expert in Linux server security, hosting and automation scripting.",
-     social: {
+    social: {
       linkedin: "https://linkedin.com/in/...",
       twitter: "https://twitter.com/...",
       facebook: "https://facebook.com/...",
@@ -63,9 +70,9 @@ const teachers = [
     id: 4,
     name: "Rao Nazra",
     designation: "Linux & DevOps Instructor",
-    image: kid,
+    image: teacher4,
     bio: "Expert in Linux server security, hosting and automation scripting.",
-     social: {
+    social: {
       linkedin: "https://linkedin.com/in/...",
       twitter: "https://twitter.com/...",
       facebook: "https://facebook.com/...",
@@ -76,9 +83,9 @@ const teachers = [
     id: 5,
     name: "Rao Nazra",
     designation: "Linux & DevOps Instructor",
-    image: kid,
+    image: teacher5,
     bio: "Expert in Linux server security, hosting and automation scripting.",
-     social: {
+    social: {
       linkedin: "https://linkedin.com/in/...",
       twitter: "https://twitter.com/...",
       facebook: "https://facebook.com/...",
@@ -92,7 +99,7 @@ const teachers = [
 const newsList = [
   {
     id: 1,
-    image: newsImg,
+    image: newsImg1,
     date: "2024-08-19 09:25:32",
     postedBy: "Admin",
     title: "Open Source Intelligence (OSINT)",
@@ -112,7 +119,7 @@ const newsList = [
 
   {
     id: 2,
-    image: newsImg,
+    image: newsImg2,
     date: "2024-08-19 09:25:32",
     postedBy: "Admin",
     title: "Open Source Intelligence (OSINT)",
@@ -132,7 +139,7 @@ const newsList = [
 
   {
     id: 3,
-    image: newsImg,
+    image: newsImg3,
     date: "2024-08-19 09:25:32",
     postedBy: "Admin",
     title: "Open Source Intelligence (OSINT)",
@@ -156,7 +163,7 @@ const courses = [
   {
     id: 1,
     title: "Secure Your Digital Life with A Hands-On Workshop!",
-    image: abbas,
+    image: course1,
     trainer: {
       name: "Rizwan Saeed",
       avatar: "https://randomuser.me/api/portraits/men/1.jpg",
@@ -171,7 +178,7 @@ const courses = [
   {
     id: 2,
     title: "Making Best Use of Artificial Intelligence",
-    image: violate,
+    image: course2,
     trainer: {
       name: "Dr Sanaullah",
       avatar: "https://randomuser.me/api/portraits/men/2.jpg",
@@ -186,7 +193,7 @@ const courses = [
   {
     id: 3,
     title: "Secure Websites/Email Configuration, Hosting on Linux",
-    image: kid,
+    image: course3,
     trainer: {
       name: "Rao Nazra",
       avatar: "https://randomuser.me/api/portraits/women/1.jpg",
@@ -201,7 +208,7 @@ const courses = [
   {
     id: 4,
     title: "Introduction to Cyber Security and database and Data mining",
-    image: car1,
+    image: course4,
     trainer: {
       name: "Ali Khan",
       avatar: "https://randomuser.me/api/portraits/men/3.jpg",
@@ -216,7 +223,7 @@ const courses = [
   {
     id: 5,
     title: "Data Science with Python, Artifical intellgence",
-    image: car2,
+    image: course5,
     trainer: {
       name: "Ayesha Nazeer",
       avatar: "https://randomuser.me/api/portraits/women/4.jpg",
@@ -231,7 +238,7 @@ const courses = [
   {
     id: 6,
     title: "Data Science with Python, Artifical intellgence",
-    image: car3,
+    image: course6,
     trainer: {
       name: "Ayesha Nazeer",
       avatar: "https://randomuser.me/api/portraits/women/4.jpg",
@@ -246,7 +253,7 @@ const courses = [
   {
     id: 7,
     title: "Data Science with Python, Artifical intellgence",
-    image: ahmad,
+    image: course7,
     trainer: {
       name: "Ayesha Nazeer",
       avatar: "https://randomuser.me/api/portraits/women/4.jpg",
@@ -389,12 +396,45 @@ function Home() {
     navigate("/teachers");
   };
 
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
+  const videoUrl = "https://www.w3schools.com/html/mov_bbb.mp4"; // Replace with your actual MP4 video URL
+
+  const handlePlayVideo = () => {
+    setIsVideoModalOpen(true);
+  };
+
+  const handleCloseVideo = () => {
+    setIsVideoModalOpen(false);
+  };
+
+  function VideoModal({ isOpen, onClose, videoUrl }) {
+    if (!isOpen) return null;
+
+    return (
+      <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+        <div className="bg-white rounded-lg overflow-hidden relative w-[90%] max-w-4xl shadow-lg">
+          <button
+            onClick={onClose}
+            className="absolute top-3 right-3 text-gray-500 hover:text-gray-700 text-2xl z-10"
+          >
+            &times;
+          </button>
+          <video controls autoPlay className="w-full h-auto">
+            <source src={videoUrl} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
       {/* Hero section */}
       <section className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden">
         <img
-          src={image}
+          src={sliderImg}
           alt="Trescol Background"
           className="absolute inset-0 w-full h-full object-cover opacity-60 z-0"
         />
@@ -542,7 +582,7 @@ function Home() {
         </div>
       </section>
 
-{/* New Section */}
+      {/* New Section */}
       <section className="py-16 bg-gradient-to-br from-teal-200/60 to-teal-100/40 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
@@ -591,10 +631,37 @@ function Home() {
         </div>
       </section>
 
+      <section className="relative h-[570px] bg-teal-800 text-center text-white flex flex-col items-center justify-center overflow-visible">
+        <VideoModal
+          isOpen={isVideoModalOpen}
+          onClose={handleCloseVideo}
+          videoUrl={videoUrl}
+        />
+
+        <p className="text-2xl uppercase tracking-widest mb-2 mt-96">Take a Look</p>
+        <h2 className="text-6xl font-bold mb-6">Video Tour on Trescol</h2>
+
+        <div className="relative z-10 transform translate-y-1/1 mt-6">
+          <img
+            src={course1}
+            alt="Video Tour Thumbnail"
+            className="w-[90vw] max-w-[1000px] h-[530px] object-cover rounded-lg shadow-xl"
+          />
+          <button
+            onClick={handlePlayVideo}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-teal-500 text-white rounded-full w-20 h-20 flex items-center justify-center hover:bg-teal-700 transition"
+          >
+            <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </button>
+        </div>
+      </section>
+
       {/* Teacher Section */}
-      <section className="py-16 bg-teal-600 rounded-3xl mx-4 shadow-xl">
+      <section className="py-16 bg-teal-600 rounded-3xl mx-4 mt-96 shadow-xl">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">
+          <h2 className="text-3xl font-bold text-white mb-10 text-center">
             Meet Our Experts
           </h2>
 
