@@ -1,20 +1,94 @@
-import React, { useRef, useEffect, useState, } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useCourseContext } from "../context/CourseContext";
 import { useNewsContext } from "../context/NewsContext";
+import { useTeacherContext } from "../context/TeacherContext";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import "animate.css";
 import image from "../assets/logo.png";
 import abbas from "../assets/abbas.png";
-import violate from "../assets/vilate.png"
-import kid from "../assets/kid.png"
-import car1 from "../assets/car1.png"
-import car2 from "../assets/car2.png"
-import car3 from "../assets/car3.png"
-import ahmad from "../assets/ahmad.png"
-import newsImg from "../assets/abbas.png"; 
+import violate from "../assets/vilate.png";
+import kid from "../assets/kid.png";
+import car1 from "../assets/car1.png";
+import car2 from "../assets/car2.png";
+import car3 from "../assets/car3.png";
+import ahmad from "../assets/ahmad.png";
+import newsImg from "../assets/abbas.png";
+import { FaLinkedin, FaTwitter } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
+// Teachers list
+
+const teachers = [
+  {
+    id: 1,
+    name: "Rizwan Saeed",
+    designation: "Cyber Security Expert",
+    image: abbas,
+    bio: "Over 10 years of experience in ethical hacking, OSINT, and secure networking.",
+    social: {
+      linkedin: "https://linkedin.com/in/...",
+      twitter: "https://twitter.com/...",
+      facebook: "https://facebook.com/...",
+      github: "https://github.com/...",
+    },
+  },
+  {
+    id: 2,
+    name: "Dr Sanaullah",
+    designation: "AI Specialist",
+    image: violate,
+    bio: "Focused on AI and Machine Learning applications in education and business.",
+     social: {
+      linkedin: "https://linkedin.com/in/...",
+      twitter: "https://twitter.com/...",
+      facebook: "https://facebook.com/...",
+      github: "https://github.com/...",
+    },
+  },
+  {
+    id: 3,
+    name: "Rao Nazra",
+    designation: "Linux & DevOps Instructor",
+    image: kid,
+    bio: "Expert in Linux server security, hosting and automation scripting.",
+     social: {
+      linkedin: "https://linkedin.com/in/...",
+      twitter: "https://twitter.com/...",
+      facebook: "https://facebook.com/...",
+      github: "https://github.com/...",
+    },
+  },
+  {
+    id: 4,
+    name: "Rao Nazra",
+    designation: "Linux & DevOps Instructor",
+    image: kid,
+    bio: "Expert in Linux server security, hosting and automation scripting.",
+     social: {
+      linkedin: "https://linkedin.com/in/...",
+      twitter: "https://twitter.com/...",
+      facebook: "https://facebook.com/...",
+      github: "https://github.com/...",
+    },
+  },
+  {
+    id: 5,
+    name: "Rao Nazra",
+    designation: "Linux & DevOps Instructor",
+    image: kid,
+    bio: "Expert in Linux server security, hosting and automation scripting.",
+     social: {
+      linkedin: "https://linkedin.com/in/...",
+      twitter: "https://twitter.com/...",
+      facebook: "https://facebook.com/...",
+      github: "https://github.com/...",
+    },
+  },
+  // Add more...
+];
+
+// News list
 const newsList = [
   {
     id: 1,
@@ -132,7 +206,8 @@ const courses = [
       name: "Ali Khan",
       avatar: "https://randomuser.me/api/portraits/men/3.jpg",
     },
-    description: "Basics of cybersecurity for everyone Basics of cybersecurity for everyone Basics of cybersecurity for everyone...",
+    description:
+      "Basics of cybersecurity for everyone Basics of cybersecurity for everyone Basics of cybersecurity for everyone...",
     postedOn: "2025-05-01",
     applyBefore: "2025-07-01",
     duration: "3 days",
@@ -146,7 +221,8 @@ const courses = [
       name: "Ayesha Nazeer",
       avatar: "https://randomuser.me/api/portraits/women/4.jpg",
     },
-    description: "Learn Python for data analysis and visualization Learn Python for data analysis and visualization Learn Python...",
+    description:
+      "Learn Python for data analysis and visualization Learn Python for data analysis and visualization Learn Python...",
     postedOn: "2025-04-10",
     applyBefore: "2025-06-15",
     duration: "5 days",
@@ -160,7 +236,8 @@ const courses = [
       name: "Ayesha Nazeer",
       avatar: "https://randomuser.me/api/portraits/women/4.jpg",
     },
-    description: "Learn Python for data analysis and visualization Learn Python for data analysis and visualization Learn Python for data...",
+    description:
+      "Learn Python for data analysis and visualization Learn Python for data analysis and visualization Learn Python for data...",
     postedOn: "2025-04-10",
     applyBefore: "2025-06-15",
     duration: "5 days",
@@ -174,7 +251,8 @@ const courses = [
       name: "Ayesha Nazeer",
       avatar: "https://randomuser.me/api/portraits/women/4.jpg",
     },
-    description: "Learn Python for data analysis and visualization Learn Python for data analysis and visualization Learn Python for data...",
+    description:
+      "Learn Python for data analysis and visualization Learn Python for data analysis and visualization Learn Python for data...",
     postedOn: "2025-04-10",
     applyBefore: "2025-06-15",
     duration: "5 days",
@@ -233,7 +311,6 @@ function Particles() {
 
 // Hero Section
 function Home() {
-
   const [currentStartIndex, setCurrentStartIndex] = useState(0);
   const [cardsPerPage, setCardsPerPage] = useState(getCardsPerPage());
 
@@ -258,30 +335,59 @@ function Home() {
     currentStartIndex + cardsPerPage
   );
 
+  const [currentTeacherStartIndex, setCurrentTeacherStartIndex] = useState(0);
+  const [teachersPerPage, setTeachersPerPage] = useState(getCardsPerPage());
+
+  const maxTeacherIndex = Math.max(0, teachers.length - teachersPerPage);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const perPage = getCardsPerPage();
+      setCardsPerPage(perPage);
+      setTeachersPerPage(perPage);
+      setCurrentStartIndex(0);
+      setCurrentTeacherStartIndex(0);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Arrows of Teacher section
+  const handleTeacherPrev = () => {
+    setCurrentTeacherStartIndex((prev) => Math.max(prev - 1, 0));
+  };
+
+  const handleTeacherNext = () => {
+    setCurrentTeacherStartIndex((prev) => Math.min(prev + 1, maxTeacherIndex));
+  };
+
   const handleArrowClick = (direction) => {
-  if (direction === "left") {
-    setCurrentStartIndex((prev) => Math.max(prev - 1, 0));
-  } else {
-    setCurrentStartIndex((prev) => Math.min(prev + 1, maxIndex));
-  }
-};
+    if (direction === "left") {
+      setCurrentStartIndex((prev) => Math.max(prev - 1, 0));
+    } else {
+      setCurrentStartIndex((prev) => Math.min(prev + 1, maxIndex));
+    }
+  };
 
+  const { setAllTeachers } = useTeacherContext();
+  const { setSelectedNews } = useNewsContext();
+  const { setCourses } = useCourseContext();
+  const navigate = useNavigate();
 
-const { setSelectedNews } = useNewsContext();
-const { setCourses } = useCourseContext();
-const navigate = useNavigate();
+  const handleCourseClick = () => {
+    setCourses(courses); // store the course data in context
+    navigate("/courses");
+  };
 
-const handleCourseClick = () => {
-  setCourses(courses); // store the course data in context
-  navigate("/courses");
-};
-
-
-const handleReadMore = (item) => {
+  const handleReadMore = (item) => {
     setSelectedNews(item);
     navigate("/news");
   };
 
+  const handleKnowMore = () => {
+    setAllTeachers(teachers); // send all teacher data to context
+    navigate("/teachers");
+  };
 
   return (
     <>
@@ -322,147 +428,305 @@ const handleReadMore = (item) => {
       </section>
 
       {/* Courses Section */}
-      {/* Courses Section */}
-<section className="py-16 bg-gray-50">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-      Featured Courses
-    </h2>
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            Featured Courses
+          </h2>
 
-    {/* Carousel Wrapper */}
-    <div className="relative flex items-center">
-      {/* Left Arrow */}
-      <button
-        onClick={() => handleArrowClick("left")}
-        className="absolute left-0 z-10 bg-teal-500 text-white p-3 rounded-full hover:bg-teal-600 transition"
-        style={{ transform: "translateX(-50%)" }}
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-
-      {/* Cards Grid */}
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-12">
-        {visibleCourses.map((course) => (
-          <div
-            key={course.id}
-            className="bg-white rounded-xl shadow-md overflow-hidden transition hover:shadow-xl"
-          >
-            <img
-              src={course.image}
-              alt={course.title}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-5">
-              <h3 className="text-xl font-bold text-gray-800 mb-2">
-                {course.title}
-              </h3>
-              <div className="flex items-center gap-3 mb-2">
-                <img
-                  src={course.trainer.avatar}
-                  alt={course.trainer.name}
-                  className="w-8 h-8 rounded-full"
-                />
-                <span className="text-sm text-gray-600">
-                  by {course.trainer.name}
-                </span>
-              </div>
-              <p className="text-sm text-gray-700 mb-4">
-                {course.description}
-              </p>
-              <ul className="text-sm text-gray-500 mb-4 space-y-1">
-                <li>
-                  <strong>Posted on:</strong> {course.postedOn}
-                </li>
-                <li>
-                  <strong>Apply before:</strong> {course.applyBefore}
-                </li>
-                <li>
-                  <strong>Duration:</strong> {course.duration}
-                </li>
-                <li>
-                  <strong>Fees:</strong> {course.fees}
-                </li>
-              </ul>
-              <button className="w-full bg-teal-500 text-white py-2 rounded-md hover:bg-teal-600 transition">
-                Apply Now
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Right Arrow */}
-      <button
-        onClick={() => handleArrowClick("right")}
-        className="absolute right-0 z-10 bg-teal-500 text-white p-3 rounded-full hover:bg-teal-600 transition"
-        style={{ transform: "translateX(50%)" }}
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-    </div>
-
-    {/* View All Courses Button */}
-    <div className="mt-10 text-center">
-      <button onClick={handleCourseClick} className="px-6 py-3 bg-teal-500 text-white rounded-full hover:bg-teal-600 transition">
-        View All Courses
-      </button>
-    </div>
-  </div>
-</section>
-
-<section className="py-16 bg-gradient-to-br from-teal-200/60 to-teal-100/40 backdrop-blur-sm">
-  <div className="max-w-7xl mx-auto px-4">
-    <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
-      News & Updates
-    </h2>
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center ml-14 mt-24">
-      {newsList.map((item) => (
-        <div
-          key={item.id}
-          className="relative flex w-80 flex-col rounded-xl bg-white/70 backdrop-blur-md text-gray-700 shadow-md"
-        >
-          <div className="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-gradient-to-r from-teal-500 to-teal-600 shadow-lg shadow-teal-500/40">
-            <img
-              src={item.image}
-              alt={item.title}
-              className="w-full h-full object-cover object-center"
-            />
-          </div>
-          <div className="p-6">
-            <p className="text-xs text-gray-500 mb-1">📅 {item.date}</p>
-            <p className="text-xs text-gray-600 mb-2">
-              🖋️ Posted by: <span className="font-semibold">{item.postedBy}</span>
-            </p>
-            <h5 className="mb-2 text-xl font-semibold text-blue-gray-900">
-              {item.title}
-            </h5>
-            <p className="text-sm text-gray-700">
-              {item.description.length > 80
-                ? item.description.slice(0, 80) + "..."
-                : item.description}
-            </p>
-          </div>
-          <div className="p-6 pt-0">
+          {/* Carousel Wrapper */}
+          <div className="relative flex items-center">
+            {/* Left Arrow */}
             <button
-              type="button"
-              onClick={() => handleReadMore(item)}
-              className="rounded-lg bg-teal-400 py-3 px-6 text-xs font-bold uppercase text-white shadow-md transition-all hover:shadow-lg hover:bg-teal-600 focus:outline-none"
+              onClick={() => handleArrowClick("left")}
+              className="absolute left-0 z-10 bg-teal-500 text-white p-3 rounded-full hover:bg-teal-600 transition"
+              style={{ transform: "translateX(-50%)" }}
             >
-              Read More
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+
+            {/* Cards Grid */}
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-12">
+              {visibleCourses.map((course) => (
+                <div
+                  key={course.id}
+                  className="bg-white rounded-xl shadow-md overflow-hidden transition hover:shadow-xl"
+                >
+                  <img
+                    src={course.image}
+                    alt={course.title}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="p-5">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">
+                      {course.title}
+                    </h3>
+                    <div className="flex items-center gap-3 mb-2">
+                      <img
+                        src={course.trainer.avatar}
+                        alt={course.trainer.name}
+                        className="w-8 h-8 rounded-full"
+                      />
+                      <span className="text-sm text-gray-600">
+                        by {course.trainer.name}
+                      </span>
+                    </div>
+                    <p className="text-sm text-gray-700 mb-4">
+                      {course.description}
+                    </p>
+                    <ul className="text-sm text-gray-500 mb-4 space-y-1">
+                      <li>
+                        <strong>Posted on:</strong> {course.postedOn}
+                      </li>
+                      <li>
+                        <strong>Apply before:</strong> {course.applyBefore}
+                      </li>
+                      <li>
+                        <strong>Duration:</strong> {course.duration}
+                      </li>
+                      <li>
+                        <strong>Fees:</strong> {course.fees}
+                      </li>
+                    </ul>
+                    <button className="w-full bg-teal-500 text-white py-2 rounded-md hover:bg-teal-600 transition">
+                      Apply Now
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Right Arrow */}
+            <button
+              onClick={() => handleArrowClick("right")}
+              className="absolute right-0 z-10 bg-teal-500 text-white p-3 rounded-full hover:bg-teal-600 transition"
+              style={{ transform: "translateX(50%)" }}
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+          </div>
+
+          {/* View All Courses Button */}
+          <div className="mt-10 text-center">
+            <button
+              onClick={handleCourseClick}
+              className="px-6 py-3 bg-teal-500 text-white rounded-full hover:bg-teal-600 transition"
+            >
+              View All Courses
             </button>
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
+{/* New Section */}
+      <section className="py-16 bg-gradient-to-br from-teal-200/60 to-teal-100/40 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
+            News & Updates
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center ml-14 mt-24">
+            {newsList.map((item) => (
+              <div
+                key={item.id}
+                className="relative flex w-80 flex-col rounded-xl bg-white/70 backdrop-blur-md text-gray-700 shadow-md"
+              >
+                <div className="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-gradient-to-r from-teal-500 to-teal-600 shadow-lg shadow-teal-500/40">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
+                <div className="p-6">
+                  <p className="text-xs text-gray-500 mb-1">📅 {item.date}</p>
+                  <p className="text-xs text-gray-600 mb-2">
+                    🖋️ Posted by:{" "}
+                    <span className="font-semibold">{item.postedBy}</span>
+                  </p>
+                  <h5 className="mb-2 text-xl font-semibold text-blue-gray-900">
+                    {item.title}
+                  </h5>
+                  <p className="text-sm text-gray-700">
+                    {item.description.length > 80
+                      ? item.description.slice(0, 80) + "..."
+                      : item.description}
+                  </p>
+                </div>
+                <div className="p-6 pt-0">
+                  <button
+                    type="button"
+                    onClick={() => handleReadMore(item)}
+                    className="rounded-lg bg-teal-400 py-3 px-6 text-xs font-bold uppercase text-white shadow-md transition-all hover:shadow-lg hover:bg-teal-600 focus:outline-none"
+                  >
+                    Read More
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
+      {/* Teacher Section */}
+      <section className="py-16 bg-teal-600 rounded-3xl mx-4 shadow-xl">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">
+            Meet Our Experts
+          </h2>
 
+          {/* Carousel Wrapper */}
+          <div className="relative flex items-center">
+            <button
+              onClick={handleTeacherPrev}
+              className="absolute left-0 z-10 bg-teal-500 text-white p-3 rounded-full hover:bg-teal-700 transition"
+              style={{ transform: "translateX(-50%)" }}
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-12">
+              {teachers
+                .slice(
+                  currentTeacherStartIndex,
+                  currentTeacherStartIndex + teachersPerPage
+                )
+                .map((teacher) => (
+                  <div
+                    key={teacher.id}
+                    className="bg-white rounded-xl shadow-md p-6"
+                  >
+                    <img
+                      src={teacher.image}
+                      alt={teacher.name}
+                      className="w-full h-48 object-cover rounded-lg mb-4"
+                    />
+                    <h3 className="text-xl font-bold">{teacher.name}</h3>
+                    <p className="text-sm text-gray-600">
+                      {teacher.designation}
+                    </p>
+                    <p className="text-sm mt-2">{teacher.bio}</p>
+                    <div className="flex gap-4 mt-3 text-teal-500">
+                      {teacher.social.linkedin && (
+                        <a
+                          href={teacher.social.linkedin}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="hover:text-teal-800 transition"
+                        >
+                          <i className="fab fa-linkedin text-xl"></i>
+                        </a>
+                      )}
+                      {teacher.social.twitter && (
+                        <a
+                          href={teacher.social.twitter}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="hover:text-teal-800 transition"
+                        >
+                          <i className="fab fa-twitter text-xl"></i>
+                        </a>
+                      )}
+                      {teacher.social.facebook && (
+                        <a
+                          href={teacher.social.facebook}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="hover:text-teal-800 transition"
+                        >
+                          <i className="fab fa-facebook text-xl"></i>
+                        </a>
+                      )}
+                      {teacher.social.github && (
+                        <a
+                          href={teacher.social.github}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="hover:text-teal-800 transition"
+                        >
+                          <i className="fab fa-github text-xl"></i>
+                        </a>
+                      )}
+                    </div>
+
+                    <div className="mt-4">
+                      <button
+                        onClick={handleKnowMore}
+                        className="w-full bg-teal-500 text-white py-2 rounded-lg hover:bg-teal-600 transition"
+                      >
+                        Know More
+                      </button>
+                    </div>
+                  </div>
+                ))}
+            </div>
+
+            <button
+              onClick={handleTeacherNext}
+              className="absolute right-0 z-10 bg-teal-500 text-white p-3 rounded-full hover:bg-teal-700 transition"
+              style={{ transform: "translateX(50%)" }}
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div className="mt-10 text-center">
+            <button
+              onClick={handleKnowMore}
+              className="px-6 py-3 bg-teal-500 text-white rounded-full hover:bg-teal-700 transition"
+            >
+              View All Teachers
+            </button>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
