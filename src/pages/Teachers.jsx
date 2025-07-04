@@ -41,6 +41,8 @@ function Teachers() {
                 <h3 className="text-xl font-bold">{teacher.name}</h3>
                 <p className="text-sm text-gray-600">{teacher.designation}</p>
                 <p className="text-sm mt-2">{teacher.bio}</p>
+                <p className="text-sm mt-2"><span className="font-bold">Languages:</span>{teacher.Languages}</p>
+                <p className="text-sm mt-2"><span className="font-bold">Specialties</span>: {teacher.Specialties}</p>
                 <div className="flex gap-4 mt-3 text-teal-500">
                   {teacher.social.linkedin && (
                     <a

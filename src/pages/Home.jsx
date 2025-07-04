@@ -7,11 +7,9 @@ import * as THREE from "three";
 import "animate.css";
 import { courses, teachers, newsList } from "../data";
 import sliderImg from "../assets/sliderimage.jpg";
-import course1 from "../assets/course1.png";
-
+import thumbnail from "../assets/W1 banner thumbnail.jpg";
 
 import { useNavigate } from "react-router-dom";
-
 
 // Particles Component
 function Particles() {
@@ -217,8 +215,13 @@ function Home() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Featured Courses
+            Explore Our Featured Courses
           </h2>
+          <p className="text-center text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
+            Each course is crafted by seasoned professionals to deliver both
+            foundational understanding and hands-on application. Browse our
+            featured offerings below.
+          </p>
 
           {/* Carousel Wrapper */}
           <div className="relative flex items-center">
@@ -285,9 +288,12 @@ function Home() {
                       <li>
                         <strong>Fees:</strong> {course.fees}
                       </li>
+                       <li>
+                        <strong>Venue:</strong> {course.Venue}
+                      </li>
                     </ul>
-                    <button className="w-full bg-teal-500 text-white py-2 rounded-md hover:bg-teal-600 transition">
-                      Apply Now
+                    <button onClick={handleCourseClick} className="w-full bg-teal-500 text-white py-2 rounded-md hover:bg-teal-600 transition">
+                      Learn More 
                     </button>
                   </div>
                 </div>
@@ -394,7 +400,7 @@ function Home() {
 
         <div className="relative z-10 transform translate-y-1/1 mt-6">
           <img
-            src={course1}
+            src={thumbnail}
             alt="Video Tour Thumbnail"
             className="w-[90vw] max-w-[1000px] h-[530px] object-cover rounded-lg shadow-xl"
           />
@@ -413,7 +419,7 @@ function Home() {
       <section className="py-16 bg-teal-600 rounded-3xl mx-4 mt-96 shadow-xl">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-white mb-10 text-center">
-            Meet Our Experts
+            Meet the Mentors Shaping the Cyber Future
           </h2>
 
           {/* Carousel Wrapper */}

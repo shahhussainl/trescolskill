@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, X, Upload } from "lucide-react";
+import logo from "../assets/trescol logo white-04.png";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +26,9 @@ function Navbar() {
         <div className="flex justify-between h-20">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <span className="text-2xl font-bold tracking-tight">Trescol</span>
+              <div className="flex-shrink-0">
+                <img src={logo} alt="Trescol Logo" className="h-14 w-auto" />
+              </div>
             </div>
             <div className="hidden md:ml-60 md:flex md:space-x-8">
               {navItems.map((item) => (
@@ -56,7 +59,11 @@ function Navbar() {
               onClick={toggleMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-teal-200 hover:text-white hover:bg-teal-700 focus:outline-none"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
