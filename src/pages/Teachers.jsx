@@ -11,7 +11,7 @@ function Teachers() {
   }, []);
 
   return (
-    <section className="py-16 bg-white min-h-screen">
+    <section className="py-16 bg-white min-h-screen" data-aos="fade-up">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-6">
           <button
@@ -27,7 +27,7 @@ function Teachers() {
         {allTeachers.length === 0 ? (
           <p className="text-center text-gray-600">No teachers available.</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8" data-aos="fade-up"> 
             {allTeachers.map((teacher) => (
               <div
                 key={teacher.id}

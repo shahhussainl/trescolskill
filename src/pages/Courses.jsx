@@ -15,7 +15,7 @@ function Courses() {
   };
 
   return (
-    <div className="py-16 bg-gray-100 min-h-screen">
+    <div className="py-16 bg-gray-100 min-h-screen" data-aos="fade-up">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-6">
           <button
@@ -31,7 +31,7 @@ function Courses() {
         {courses.length === 0 ? (
           <p className="text-center text-gray-600">No courses available.</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up">
             {courses.map((course) => (
               <div
                 key={course.id}
