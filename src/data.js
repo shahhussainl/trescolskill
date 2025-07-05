@@ -228,4 +228,40 @@ Certificate of completion provided`,
   },
 ];
 
-export default { courses, teachers, newsList };
+
+
+// src/data.js
+
+export const statsData = [
+  {
+    icon: "fa-book-open",
+    color: "orange",
+    count: 6,
+    label: "Open Courses",
+    sub: "Apply Online",
+  },
+  {
+    icon: "fa-chalkboard-teacher",
+    color: "teal",
+    count: 4,
+    label: "Registered Trainers",
+    sub: "View List",
+  },
+  {
+    icon: "fa-lock",
+    color: "red",
+    count: 6,
+    label: "Closed Courses",
+    sub: "View List",
+  },
+  {
+    icon: "fa-graduation-cap",
+    color: "purple",
+    count: 7,
+    label: "Total Offered Courses",
+    sub: "View List",
+  },
+];
+
+
+export default { courses, teachers, newsList, statsData  };

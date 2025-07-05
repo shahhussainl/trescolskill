@@ -56,13 +56,13 @@ function News() {
               {allNews.map((item) => (
                 <div
                   key={item.id}
-                  className="border p-2 rounded-md flex items-center gap-4 mb-2 cursor-pointer"
+                  className="border p-2 rounded-md flex items-center gap-4 mb-2 cursor-pointer shadow-md transform transition duration-300 ease-in-out hover:scale-105 hover:-translate-y-2 hover:shadow-lg"
                   onClick={() => handleReadMore(item)}
                 >
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-16 h-16 object-cover rounded-md"
+                    className="w-16 h-16 object-cover rounded-md "
                   />
                   <div>
                     <p className="text-sm font-medium text-gray-800">

@@ -36,7 +36,7 @@ function Teachers() {
                 <img
                   src={teacher.image}
                   alt={teacher.name}
-                  className="w-full h-48 object-cover rounded-xl mb-4"
+                  className="w-full h-48 object-cover rounded-xl mb-4 transition-transform duration-300 ease-in-out hover:scale-105"
                 />
                 <h3 className="text-xl font-bold">{teacher.name}</h3>
                 <p className="text-sm text-gray-600">{teacher.designation}</p>

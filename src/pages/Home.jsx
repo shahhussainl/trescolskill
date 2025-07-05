@@ -7,7 +7,7 @@ import * as THREE from "three";
 import "animate.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { courses, teachers, newsList } from "../data";
+import { courses, teachers, newsList, statsData } from "../data";
 import sliderImg from "../assets/sliderimg.jpg";
 import thumbnail from "../assets/W1 banner thumbnail.jpg";
 
@@ -64,10 +64,9 @@ function Particles() {
 
 // Hero Section
 function Home() {
-   useEffect(() => {
+  useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
-
 
   const [currentStartIndex, setCurrentStartIndex] = useState(0);
   const [cardsPerPage, setCardsPerPage] = useState(getCardsPerPage());
@@ -183,7 +182,10 @@ function Home() {
   return (
     <>
       {/* Hero section */}
-      <section className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden" data-aos="fade-up">
+      <section
+        className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden"
+        data-aos="fade-up"
+      >
         <img
           src={sliderImg}
           alt="Trescol Background"
@@ -254,17 +256,23 @@ function Home() {
             </button>
 
             {/* Cards Grid */}
-            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-12" data-aos="fade-up">
+            <div
+              className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-12"
+              data-aos="fade-up"
+            >
               {visibleCourses.map((course) => (
                 <div
                   key={course.id}
                   className="bg-white rounded-xl shadow-md overflow-hidden transition hover:shadow-xl"
                 >
-                  <img
-                    src={course.image}
-                    alt={course.title}
-                    className="w-full h-48 object-cover"
-                  />
+                  <div className="overflow-hidden">
+                    <img
+                      src={course.image}
+                      alt={course.title}
+                      className="w-full h-48 object-cover transition-transform duration-300 ease-in-out hover:scale-110"
+                    />
+                  </div>
+
                   <div className="p-5">
                     <h3 className="text-xl font-bold text-gray-800 mb-2">
                       {course.title}
@@ -295,12 +303,15 @@ function Home() {
                       <li>
                         <strong>Fees:</strong> {course.fees}
                       </li>
-                       <li>
+                      <li>
                         <strong>Venue:</strong> {course.Venue}
                       </li>
                     </ul>
-                    <button onClick={handleCourseClick} className="w-full bg-teal-500 text-white py-2 rounded-md hover:bg-teal-600 transition">
-                      Learn More 
+                    <button
+                      onClick={handleCourseClick}
+                      className="w-full bg-teal-500 text-white py-2 rounded-md hover:bg-teal-600 transition"
+                    >
+                      Learn More
                     </button>
                   </div>
                 </div>
@@ -341,8 +352,11 @@ function Home() {
         </div>
       </section>
 
-      {/* New Section */}
-      <section className="py-16 bg-gradient-to-br from-teal-200/60 to-teal-100/40 backdrop-blur-sm" data-aos="fade-up">
+      {/* News & Updates Section */}
+      <section
+        className="py-16 bg-gradient-to-br from-teal-200/60 to-teal-100/40 backdrop-blur-sm"
+        data-aos="fade-up"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
             News & Updates
@@ -353,15 +367,16 @@ function Home() {
               {newsList.map((item) => (
                 <div
                   key={item.id}
-                  className="relative flex w-full flex-col rounded-xl bg-white/70 backdrop-blur-md text-gray-700 shadow-md"
+                  className="group relative flex w-full flex-col rounded-xl bg-white/70 backdrop-blur-md text-gray-700 shadow-md transform transition duration-300 ease-in-out hover:scale-105 hover:-translate-y-2 hover:shadow-lg"
                 >
                   <div className="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-gradient-to-r from-teal-500 to-teal-600 shadow-lg shadow-teal-500/40">
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-cover object-center"
+                      className="w-full h-full object-cover object-center transition-transform duration-300"
                     />
                   </div>
+
                   <div className="p-6">
                     <p className="text-xs text-gray-500 mb-1">📅 {item.date}</p>
                     <p className="text-xs text-gray-600 mb-2">
@@ -377,6 +392,7 @@ function Home() {
                         : item.description}
                     </p>
                   </div>
+
                   <div className="p-6 pt-0">
                     <button
                       type="button"
@@ -386,6 +402,9 @@ function Home() {
                       Read More
                     </button>
                   </div>
+
+                  {/* Optional background blob */}
+                  <div className="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-10 bg-teal-300 pointer-events-none transition-opacity duration-300 rounded-xl blur-xl scale-125"></div>
                 </div>
               ))}
             </div>
@@ -393,7 +412,12 @@ function Home() {
         </div>
       </section>
 
-      <section className="relative h-[570px] bg-teal-800 text-center text-white flex flex-col items-center justify-center overflow-visible" data-aos="fade-up">
+      {/* Video Section */}
+
+      <section
+        className="relative h-[570px] bg-teal-800 text-center text-white flex flex-col items-center justify-center overflow-visible"
+        data-aos="fade-up"
+      >
         <VideoModal
           isOpen={isVideoModalOpen}
           onClose={handleCloseVideo}
@@ -423,7 +447,10 @@ function Home() {
       </section>
 
       {/* Teacher Section */}
-      <section className="py-16 bg-teal-600 rounded-3xl mx-4 mt-96 shadow-xl" data-aos="fade-up">
+      <section
+        className="py-16 bg-teal-600 rounded-3xl mx-4 mt-96 shadow-xl"
+        data-aos="fade-up"
+      >
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-white mb-10 text-center">
             Meet the Mentors Shaping the Cyber Future
@@ -451,7 +478,10 @@ function Home() {
               </svg>
             </button>
 
-            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-12" data-aos="fade-up">
+            <div
+              className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-12"
+              data-aos="fade-up"
+            >
               {teachers
                 .slice(
                   currentTeacherStartIndex,
@@ -465,14 +495,14 @@ function Home() {
                     <img
                       src={teacher.image}
                       alt={teacher.name}
-                      className="w-full h-48 object-cover rounded-lg mb-4"
+                      className="w-full h-48 object-cover rounded-lg mb-4 transition-transform duration-300 ease-in-out hover:scale-105"
                     />
                     <h3 className="text-xl font-bold">{teacher.name}</h3>
                     <p className="text-sm text-gray-600">
                       {teacher.designation}
                     </p>
                     <p className="text-sm mt-2">{teacher.bio}</p>
-                    
+
                     <div className="flex gap-4 mt-3 text-teal-500">
                       {teacher.social.linkedin && (
                         <a
@@ -561,7 +591,40 @@ function Home() {
         </div>
       </section>
 
-      
+      {/* Upcoming & Completed Section */}
+      <section className="py-20 bg-gray-50" data-aos="fade-up">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <p className="text-sm text-teal-600 uppercase tracking-widest mb-2">
+            Join With Us
+          </p>
+          <h2 className="text-4xl font-extrabold text-gray-800 mb-12">
+            Upcoming & Completed
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+            {statsData.map((item, index) => (
+              <div
+                key={index}
+                className="group bg-teal-600 rounded-2xl shadow-md p-6 hover:shadow-lg hover:shadow-teal-300 transition duration-300 transform hover:-translate-y-2 hover:scale-105 relative overflow-hidden"
+              >
+                <div
+                  className={`flex items-center justify-center w-14 h-14 mx-auto bg-${item.color}-100 text-${item.color}-600 rounded-full text-2xl mb-4 group-hover:rotate-12 transition-transform duration-300`}
+                >
+                  <i className={`fas ${item.icon}`}></i>
+                </div>
+                <h3 className="text-4xl font-bold text-white mb-2">
+                  {item.count}
+                </h3>
+                <p className="text-lg font-semibold text-white">{item.label}</p>
+                <p className="text-sm text-white mt-1">{item.sub}</p>
+
+                {/* Background animation blob */}
+                <div className="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-10 bg-white pointer-events-none transition-opacity duration-300 rounded-2xl blur-xl scale-125"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }
