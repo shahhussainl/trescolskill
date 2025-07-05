@@ -45,7 +45,7 @@ function About() {
     <>
       <section className="bg-white text-gray-800 py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-6 ml-12">
+          <div className="mb-6 ml-10">
             <button
               onClick={handleBackToHome}
               className="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 transition"

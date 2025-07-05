@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useCourseContext } from "../context/CourseContext";
 import { useNavigate } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Courses() {
   const { courses } = useCourseContext();
@@ -20,7 +22,7 @@ function Courses() {
         <div className="mb-6">
           <button
             onClick={handleBackClick}
-            className="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 transition"
+            className="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 transition ml-2"
           >
             ← Back to Home
           </button>

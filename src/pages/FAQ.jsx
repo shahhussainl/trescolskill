@@ -50,7 +50,7 @@ export default function Faqs() {
       <div className="mb-6" data-aos="fade-right">
         <button
           onClick={() => navigate("/")}
-          className="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 transition"
+          className="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 transition ml-32"
         >
           ← Back to Home
         </button>
@@ -76,7 +76,7 @@ export default function Faqs() {
               className="w-full text-left flex justify-between items-center"
               onClick={() => toggleFAQ(index)}
             >
-              <span className="text-lg font-semibold text-teal-700">{faq.question}</span>
+              <span className="text-lg font-semibold text-white">{faq.question}</span>
               <span className="text-teal-600 text-xl">
                 {activeIndex === index ? "−" : "+"}
               </span>
