@@ -31,16 +31,19 @@ function Courses() {
         {courses.length === 0 ? (
           <p className="text-center text-gray-600">No courses available.</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up">
+          <div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            data-aos="fade-up"
+          >
             {courses.map((course) => (
               <div
                 key={course.id}
-                className="bg-white shadow-md rounded-lg overflow-hidden"
+                className="bg-white shadow-md rounded-lg overflow-hidden "
               >
                 <img
                   src={course.image}
                   alt={course.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 object-cover transition-transform duration-300 ease-in-out hover:scale-110"
                 />
                 <div className="p-5">
                   <h3 className="text-xl font-bold text-gray-800 mb-2">
