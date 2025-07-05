@@ -20,7 +20,7 @@ function News() {
   };
 
   return (
-    <div className="py-16 bg-gray-100 min-h-screen">
+    <div className="py-16 bg-gray-100 min-h-screen" data-aos="fade-up">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-6">
           <button
@@ -49,7 +49,7 @@ function News() {
                 {selectedNews.fullDescription || selectedNews.description}
               </p>
             </div>
-            <div className="bg-white p-4 rounded-lg shadow-md">
+            <div className="bg-white p-4 rounded-lg shadow-md" data-aos="fade-up">
               <h2 className="text-xl font-semibold text-gray-800 mb-4">
                 News & Blog
               </h2>

@@ -5,8 +5,10 @@ import { useTeacherContext } from "../context/TeacherContext";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import "animate.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { courses, teachers, newsList } from "../data";
-import sliderImg from "../assets/sliderimage.jpg";
+import sliderImg from "../assets/sliderimg.jpg";
 import thumbnail from "../assets/W1 banner thumbnail.jpg";
 
 import { useNavigate } from "react-router-dom";
@@ -62,6 +64,11 @@ function Particles() {
 
 // Hero Section
 function Home() {
+   useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
+
   const [currentStartIndex, setCurrentStartIndex] = useState(0);
   const [cardsPerPage, setCardsPerPage] = useState(getCardsPerPage());
 
@@ -156,7 +163,7 @@ function Home() {
     if (!isOpen) return null;
 
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+      <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 ">
         <div className="bg-white rounded-lg overflow-hidden relative w-[90%] max-w-4xl shadow-lg">
           <button
             onClick={onClose}
@@ -176,7 +183,7 @@ function Home() {
   return (
     <>
       {/* Hero section */}
-      <section className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden" data-aos="fade-up">
         <img
           src={sliderImg}
           alt="Trescol Background"
@@ -212,7 +219,7 @@ function Home() {
       </section>
 
       {/* Courses Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50" data-aos="fade-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Explore Our Featured Courses
@@ -247,7 +254,7 @@ function Home() {
             </button>
 
             {/* Cards Grid */}
-            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-12">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-12" data-aos="fade-up">
               {visibleCourses.map((course) => (
                 <div
                   key={course.id}
@@ -335,13 +342,13 @@ function Home() {
       </section>
 
       {/* New Section */}
-      <section className="py-16 bg-gradient-to-br from-teal-200/60 to-teal-100/40 backdrop-blur-sm">
+      <section className="py-16 bg-gradient-to-br from-teal-200/60 to-teal-100/40 backdrop-blur-sm" data-aos="fade-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
             News & Updates
           </h2>
 
-          <div className="relative flex items-center mt-20">
+          <div className="relative flex items-center mt-20" data-aos="fade-up">
             <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-12">
               {newsList.map((item) => (
                 <div
@@ -386,7 +393,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="relative h-[570px] bg-teal-800 text-center text-white flex flex-col items-center justify-center overflow-visible">
+      <section className="relative h-[570px] bg-teal-800 text-center text-white flex flex-col items-center justify-center overflow-visible" data-aos="fade-up">
         <VideoModal
           isOpen={isVideoModalOpen}
           onClose={handleCloseVideo}
@@ -416,7 +423,7 @@ function Home() {
       </section>
 
       {/* Teacher Section */}
-      <section className="py-16 bg-teal-600 rounded-3xl mx-4 mt-96 shadow-xl">
+      <section className="py-16 bg-teal-600 rounded-3xl mx-4 mt-96 shadow-xl" data-aos="fade-up">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-white mb-10 text-center">
             Meet the Mentors Shaping the Cyber Future
@@ -444,7 +451,7 @@ function Home() {
               </svg>
             </button>
 
-            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-12">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-12" data-aos="fade-up">
               {teachers
                 .slice(
                   currentTeacherStartIndex,
@@ -465,6 +472,7 @@ function Home() {
                       {teacher.designation}
                     </p>
                     <p className="text-sm mt-2">{teacher.bio}</p>
+                    
                     <div className="flex gap-4 mt-3 text-teal-500">
                       {teacher.social.linkedin && (
                         <a
@@ -476,6 +484,7 @@ function Home() {
                           <i className="fab fa-linkedin text-xl"></i>
                         </a>
                       )}
+
                       {teacher.social.twitter && (
                         <a
                           href={teacher.social.twitter}
@@ -551,6 +560,8 @@ function Home() {
           </div>
         </div>
       </section>
+
+      
     </>
   );
 }

@@ -34,7 +34,7 @@ export const courses = [
   },
   {
     id: 2,
-    title: "Secure Yourself ",
+    title: "Secure Email System + Secure Web Series",
     image: course2,
     trainer: {
       name: "Dr Sanaullah",
@@ -66,7 +66,7 @@ export const courses = [
   },
   {
     id: 4,
-    title: "AI for Everyone ",
+    title: "Secure Email System + Secure Web Series",
     image: course4,
     trainer: {
       name: "Ali Khan",
@@ -104,9 +104,10 @@ export const teachers = [
   {
     id: 1,
     name: "Rao Nazar Iqbal ",
-    designation: "Director of Cyber Security | Information Security Strategist",
+    designation: "Director of Cyber Security | Information Security",
     image: teacher1,
-    bio: "Mr. Rao Nazar Iqbal is a seasoned cybersecurity strategist with over two decades of experience designing and securing digital infrastructures across diverse industries. As Director of Cyber Security, he brings a wealth of real-world expertise in system administration, GRC, firewall management, VPN technologies, and Linux/BSD environments. His ability to simplify complex security architectures into practical, real-world applications has made him a sought-after trainer and mentor in the South Asian tech ecosystem. He is especially recognized for his Urdu-based cybersecurity tutorials, empowering learners in their native language. His sessions are known for live demonstrations, scenario-based learning, and mission-critical insights. ",
+    bio: "Mr. Rao Nazar Iqbal is a seasoned cybersecurity strategist with over two decades of experience designing....",
+    fullDes: "Mr. Rao Nazar Iqbal is a seasoned cybersecurity strategist with over two decades of experience designing and securing digital infrastructures across diverse industries. As Director of Cyber Security, he brings a wealth of real-world expertise in system administration, GRC, firewall management, VPN technologies, and Linux/BSD environments. His ability to simplify complex security architectures into practical, real-world applications has made him a sought-after trainer and mentor in the South Asian tech ecosystem. He is especially recognized for his Urdu-based cybersecurity tutorials, empowering learners in their native language. His sessions are known for live demonstrations, scenario-based learning, and mission-critical insights.",
     Languages: " Urdu and English",
     Specialties: "GRC, Linux/BSD VPNs, Network/Firewall Security",
     social: {
@@ -121,7 +122,8 @@ export const teachers = [
     name: "Dr. Hussain Mureed",
     designation: "Special Guest Speaker ",
     image: teacher2,
-    bio: "Hussain Mureed is a modern tech educator focused on the intersection of Artificial Intelligence, data privacy, and human-centric cybersecurity. With a background in research and real-world application of AI tools in cybersecurity awareness, Dr. Hussain simplifies emerging technologies for everyday users. He leads foundational courses on personal digital safety and AI understanding, helping learners develop critical thinking and a responsible approach to the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable.",
+    bio: "Hussain Mureed is a modern tech educator focused on the intersection of Artificial Intelligence, data privacy.....",
+    fullDes: "Hussain Mureed is a modern tech educator focused on the intersection of Artificial Intelligence, data privacy, and human-centric cybersecurity. With a background in research and real-world application of AI tools in cybersecurity awareness, Dr. Hussain simplifies emerging technologies for everyday users. He leads foundational courses on personal digital safety and AI understanding, helping learners develop critical thinking and a responsible approach to the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable feel accessible and even enjoyable feel accessible and even enjoyable.",
     Languages: "English, Urdu",
     Specialties: "AI for beginners, digital privacy, cybersecurity awareness",
     social: {
@@ -136,7 +138,10 @@ export const teachers = [
     name: "Rao Nazra",
     designation: "Linux & DevOps Instructor",
     image: teacher3,
-    bio: "Expert in Linux server security, hosting and automation scripting.",
+    bio: "Expert in Linux server security, hosting and automation scripting Hussain Mureed is a modern tech educator....",
+    fullDes: "Expert in Linux server security, hosting and automation scripting Hussain Mureed is a modern tech educator focused on the intersection of Artificial Intelligence, data privacy, and human-centric cybersecurity. With a background in research and real-world application of AI tools in cybersecurity awareness, Dr. Hussain simplifies emerging technologies for everyday users. He leads foundational courses on personal digital safety and AI understanding, helping learners develop critical thinking and a responsible approach to the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable feel accessible.",
+    Languages: "English, Urdu",
+    Specialties: "AI for beginners, digital privacy, cybersecurity awareness",
     social: {
       linkedin: "https://linkedin.com/in/rao-nazra",
       twitter: "https://twitter.com/raonazra",
@@ -149,7 +154,10 @@ export const teachers = [
     name: "Rao Nazra",
     designation: "Linux & DevOps Instructor",
     image: teacher4,
-    bio: "Expert in Linux server security, hosting and automation scripting.",
+    bio: "Expert in Linux server security, hosting and automation scripting Hussain Mureed is a modern tech educator....",
+    fullDes: "Expert in Linux server security, hosting and automation scripting Hussain Mureed is a modern tech educator focused on the intersection of Artificial Intelligence, data privacy, and human-centric cybersecurity. With a background in research and real-world application of AI tools in cybersecurity awareness, Dr. Hussain simplifies emerging technologies for everyday users. He leads foundational courses on personal digital safety and AI understanding, helping learners develop critical thinking and a responsible approach to the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable feel accessible",
+    Languages: "English, Urdu",
+    Specialties: "AI for beginners, digital privacy, cybersecurity awareness ",
     social: {
       linkedin: "https://linkedin.com/in/rao-nazra",
       twitter: "https://twitter.com/raonazra",
@@ -162,7 +170,10 @@ export const teachers = [
     name: "Rao Nazra",
     designation: "Linux & DevOps Instructor",
     image: teacher5,
-    bio: "Expert in Linux server security, hosting and automation scripting.",
+    bio: "Expert in Linux server security, hosting and automation scripting Hussain Mureed is a modern tech educator focused on the intersection....",
+    fullDes: "Expert in Linux server security, hosting and automation scripting Hussain Mureed is a modern tech educator focused on the intersection of Artificial Intelligence, data privacy, and human-centric cybersecurity. With a background in research and real-world application of AI tools in cybersecurity awareness, Dr. Hussain simplifies emerging technologies for everyday users. He leads foundational courses on personal digital safety and AI understanding, helping learners develop critical thinking and a responsible approach to the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable feel accessible.",
+    Languages: "English, Urdu",
+    Specialties: "AI for beginners, digital privacy, cybersecurity awareness",
     social: {
       linkedin: "https://linkedin.com/in/rao-nazra",
       twitter: "https://twitter.com/raonazra",
@@ -179,7 +190,7 @@ export const newsList = [
     date: "2024-08-19 09:25:32",
     postedBy: "Admin",
     title: "Open Source Intelligence (OSINT)",
-    description: `"What is OSINT? A Beginner's Guide..."`,
+    description: `"What is OSINT? A Beginner's Guide OSINT techniques for investigations..."`,
     fullDescription: `"What is OSINT? A Beginner's Guide to Open Source Intelligence"
 Introduction to OSINT
 Explanation of common terms and concepts
