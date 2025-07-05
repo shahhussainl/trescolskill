@@ -6,10 +6,12 @@ import "./index.css";
 import { CourseProvider } from "./context/CourseContext";
 import { NewsProvider } from "./context/NewsContext";
 import { TeacherProvider } from "./context/TeacherContext";
+import { AboutProvider } from "./context/AboutContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
+    <AboutProvider>
       <CourseProvider>
         <NewsProvider>
           <TeacherProvider>
@@ -17,6 +19,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           </TeacherProvider>
         </NewsProvider>
       </CourseProvider>
+      </AboutProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

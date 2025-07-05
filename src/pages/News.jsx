@@ -1,8 +1,15 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useNewsContext } from "../context/NewsContext";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function News() {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+    window.scrollTo(0, 0);
+  }, []);
+
   const { selectedNews, setSelectedNews, allNews } = useNewsContext();
   const navigate = useNavigate();
 
@@ -36,7 +43,7 @@ function News() {
               <img
                 src={selectedNews.image}
                 alt={selectedNews.title}
-                className="w-full h-80 object-cover rounded-lg mb-6"
+                className="w-full h-80 object-cover rounded-lg mb-6 transition-transform duration-300 "
               />
               <div className="text-sm text-gray-500 flex items-center mb-2 space-x-6">
                 <p>🖋️ By {selectedNews.postedBy}</p>
@@ -49,20 +56,23 @@ function News() {
                 {selectedNews.fullDescription || selectedNews.description}
               </p>
             </div>
-            <div className="bg-white p-4 rounded-lg shadow-md" data-aos="fade-up">
+            <div
+              className="bg-white p-4 rounded-lg shadow-md"
+              data-aos="fade-up"
+            >
               <h2 className="text-xl font-semibold text-gray-800 mb-4">
                 News & Blog
               </h2>
               {allNews.map((item) => (
                 <div
                   key={item.id}
-                  className="border p-2 rounded-md flex items-center gap-4 mb-2 cursor-pointer shadow-md transform transition duration-300 ease-in-out hover:scale-105 hover:-translate-y-2 hover:shadow-lg"
+                  className="border p-2 rounded-md flex items-center gap-4 mb-2 cursor-pointer shadow-md transform transition duration-300 ease-in-out hover:scale-105 hover:-translate-y-2 hover:shadow-lg "
                   onClick={() => handleReadMore(item)}
                 >
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-16 h-16 object-cover rounded-md "
+                    className="w-16 h-16 object-cover rounded-md transition-transform duration-300"
                   />
                   <div>
                     <p className="text-sm font-medium text-gray-800">
@@ -86,19 +96,22 @@ function News() {
                 {allNews.map((item) => (
                   <div
                     key={item.id}
-                    className="relative flex w-full flex-col rounded-xl bg-white shadow-md"
+                    className="relative mt-10 flex w-full flex-col rounded-xl bg-white shadow-md transform transition duration-300 ease-in-out hover:scale-105 hover:-translate-y-2 hover:shadow-lg"
                   >
                     <div className="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-gradient-to-r from-teal-500 to-teal-600 shadow-lg shadow-teal-500/40">
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-full object-cover object-center"
+                        className="w-full h-full object-cover object-center "
                       />
                     </div>
                     <div className="p-6">
-                      <p className="text-xs text-gray-500 mb-1">📅 {item.date}</p>
+                      <p className="text-xs text-gray-500 mb-1">
+                        📅 {item.date}
+                      </p>
                       <p className="text-xs text-gray-600 mb-2">
-                        🖋️ Posted by: <span className="font-semibold">{item.postedBy}</span>
+                        🖋️ Posted by:{" "}
+                        <span className="font-semibold">{item.postedBy}</span>
                       </p>
                       <h5 className="mb-2 text-xl font-semibold text-gray-900">
                         {item.title}

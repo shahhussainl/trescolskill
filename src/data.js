@@ -5,7 +5,7 @@ import course3 from "./assets/course3.jpeg";
 import course4 from "./assets/course4.png";
 import course5 from "./assets/course5.jpg";
 import course6 from "./assets/course6.jpg";
-import course7 from "./assets/course6.jpg"; 
+import course7 from "./assets/course6.jpg";
 import teacher1 from "./assets/teacher1.jpeg";
 import teacher2 from "./assets/teacher2.jpeg";
 import teacher3 from "./assets/teacher3.jpeg";
@@ -14,7 +14,31 @@ import teacher5 from "./assets/teacher5.jpeg";
 import newsImg1 from "./assets/newsimg1.png";
 import newsImg2 from "./assets/newsimg2.jpeg";
 import newsImg3 from "./assets/newsimg3.jpeg";
+import founder1 from "./assets/W1_banner_thumbnail.jpg";
+import founder2 from "./assets/W2_banner_thumbnail.jpg";
 
+// About Section Data
+
+export const people = [
+  {
+    name: "Ather Ali",
+    title: "Chief Executive Officer (CEO)",
+    image: founder1,
+    quote:
+      "TRESCOL is not just a tech institute—it’s a mindset revolution. We’re empowering people today to lead the innovations of tomorrow.",
+    bio: "Ather Ali is the visionary force behind TRESCOL, bringing decades of expertise in cybersecurity, tech education, and digital transformation. He has led multiple national-level initiatives and built partnerships with global institutions to make tech education accessible, impactful, and future-ready.",
+  },
+  {
+    name: "Awais Liaqat",
+    title: "Chief Operating Officer (COO)",
+    image: founder2,
+    quote:
+      "The real power of AI isn’t in automation—it’s in how we train minds to think bigger, faster, and farther. That’s the TRESCOL edge.",
+    bio: "Awais Liaqat ensures seamless operations of all programs, training, and internal systems. Known for strategic thinking and operational excellence, he drives TRESCOL forward with clarity and purpose.",
+  },
+];
+
+// Courses Section Data
 export const courses = [
   {
     id: 1,
@@ -96,9 +120,9 @@ export const courses = [
     Venue: "trescol",
     fees: "15000PKR",
   },
-  
-   
 ];
+
+// Teachers Section data
 
 export const teachers = [
   {
@@ -107,7 +131,8 @@ export const teachers = [
     designation: "Director of Cyber Security | Information Security",
     image: teacher1,
     bio: "Mr. Rao Nazar Iqbal is a seasoned cybersecurity strategist with over two decades of experience designing....",
-    fullDes: "Mr. Rao Nazar Iqbal is a seasoned cybersecurity strategist with over two decades of experience designing and securing digital infrastructures across diverse industries. As Director of Cyber Security, he brings a wealth of real-world expertise in system administration, GRC, firewall management, VPN technologies, and Linux/BSD environments. His ability to simplify complex security architectures into practical, real-world applications has made him a sought-after trainer and mentor in the South Asian tech ecosystem. He is especially recognized for his Urdu-based cybersecurity tutorials, empowering learners in their native language. His sessions are known for live demonstrations, scenario-based learning, and mission-critical insights.",
+    fullDes:
+      "Mr. Rao Nazar Iqbal is a seasoned cybersecurity strategist with over two decades of experience designing and securing digital infrastructures across diverse industries. As Director of Cyber Security, he brings a wealth of real-world expertise in system administration, GRC, firewall management, VPN technologies, and Linux/BSD environments. His ability to simplify complex security architectures into practical, real-world applications has made him a sought-after trainer and mentor in the South Asian tech ecosystem. He is especially recognized for his Urdu-based cybersecurity tutorials, empowering learners in their native language. His sessions are known for live demonstrations, scenario-based learning, and mission-critical insights.",
     Languages: " Urdu and English",
     Specialties: "GRC, Linux/BSD VPNs, Network/Firewall Security",
     social: {
@@ -123,7 +148,8 @@ export const teachers = [
     designation: "Special Guest Speaker ",
     image: teacher2,
     bio: "Hussain Mureed is a modern tech educator focused on the intersection of Artificial Intelligence, data privacy.....",
-    fullDes: "Hussain Mureed is a modern tech educator focused on the intersection of Artificial Intelligence, data privacy, and human-centric cybersecurity. With a background in research and real-world application of AI tools in cybersecurity awareness, Dr. Hussain simplifies emerging technologies for everyday users. He leads foundational courses on personal digital safety and AI understanding, helping learners develop critical thinking and a responsible approach to the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable feel accessible and even enjoyable feel accessible and even enjoyable.",
+    fullDes:
+      "Hussain Mureed is a modern tech educator focused on the intersection of Artificial Intelligence, data privacy, and human-centric cybersecurity. With a background in research and real-world application of AI tools in cybersecurity awareness, Dr. Hussain simplifies emerging technologies for everyday users. He leads foundational courses on personal digital safety and AI understanding, helping learners develop critical thinking and a responsible approach to the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable feel accessible and even enjoyable feel accessible and even enjoyable.",
     Languages: "English, Urdu",
     Specialties: "AI for beginners, digital privacy, cybersecurity awareness",
     social: {
@@ -139,7 +165,8 @@ export const teachers = [
     designation: "Linux & DevOps Instructor",
     image: teacher3,
     bio: "Expert in Linux server security, hosting and automation scripting Hussain Mureed is a modern tech educator....",
-    fullDes: "Expert in Linux server security, hosting and automation scripting Hussain Mureed is a modern tech educator focused on the intersection of Artificial Intelligence, data privacy, and human-centric cybersecurity. With a background in research and real-world application of AI tools in cybersecurity awareness, Dr. Hussain simplifies emerging technologies for everyday users. He leads foundational courses on personal digital safety and AI understanding, helping learners develop critical thinking and a responsible approach to the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable feel accessible.",
+    fullDes:
+      "Expert in Linux server security, hosting and automation scripting Hussain Mureed is a modern tech educator focused on the intersection of Artificial Intelligence, data privacy, and human-centric cybersecurity. With a background in research and real-world application of AI tools in cybersecurity awareness, Dr. Hussain simplifies emerging technologies for everyday users. He leads foundational courses on personal digital safety and AI understanding, helping learners develop critical thinking and a responsible approach to the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable feel accessible.",
     Languages: "English, Urdu",
     Specialties: "AI for beginners, digital privacy, cybersecurity awareness",
     social: {
@@ -149,13 +176,14 @@ export const teachers = [
       github: "https://github.com/raonazra",
     },
   },
-   {
+  {
     id: 4,
     name: "Rao Nazra",
     designation: "Linux & DevOps Instructor",
     image: teacher4,
     bio: "Expert in Linux server security, hosting and automation scripting Hussain Mureed is a modern tech educator....",
-    fullDes: "Expert in Linux server security, hosting and automation scripting Hussain Mureed is a modern tech educator focused on the intersection of Artificial Intelligence, data privacy, and human-centric cybersecurity. With a background in research and real-world application of AI tools in cybersecurity awareness, Dr. Hussain simplifies emerging technologies for everyday users. He leads foundational courses on personal digital safety and AI understanding, helping learners develop critical thinking and a responsible approach to the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable feel accessible",
+    fullDes:
+      "Expert in Linux server security, hosting and automation scripting Hussain Mureed is a modern tech educator focused on the intersection of Artificial Intelligence, data privacy, and human-centric cybersecurity. With a background in research and real-world application of AI tools in cybersecurity awareness, Dr. Hussain simplifies emerging technologies for everyday users. He leads foundational courses on personal digital safety and AI understanding, helping learners develop critical thinking and a responsible approach to the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable feel accessible",
     Languages: "English, Urdu",
     Specialties: "AI for beginners, digital privacy, cybersecurity awareness ",
     social: {
@@ -165,13 +193,14 @@ export const teachers = [
       github: "https://github.com/raonazra",
     },
   },
-   {
+  {
     id: 5,
     name: "Rao Nazra",
     designation: "Linux & DevOps Instructor",
     image: teacher5,
     bio: "Expert in Linux server security, hosting and automation scripting Hussain Mureed is a modern tech educator focused on the intersection....",
-    fullDes: "Expert in Linux server security, hosting and automation scripting Hussain Mureed is a modern tech educator focused on the intersection of Artificial Intelligence, data privacy, and human-centric cybersecurity. With a background in research and real-world application of AI tools in cybersecurity awareness, Dr. Hussain simplifies emerging technologies for everyday users. He leads foundational courses on personal digital safety and AI understanding, helping learners develop critical thinking and a responsible approach to the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable feel accessible.",
+    fullDes:
+      "Expert in Linux server security, hosting and automation scripting Hussain Mureed is a modern tech educator focused on the intersection of Artificial Intelligence, data privacy, and human-centric cybersecurity. With a background in research and real-world application of AI tools in cybersecurity awareness, Dr. Hussain simplifies emerging technologies for everyday users. He leads foundational courses on personal digital safety and AI understanding, helping learners develop critical thinking and a responsible approach to the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable the digital world. He blends philosophical insight with practical awareness training, making complex tech feel accessible and even enjoyable feel accessible.",
     Languages: "English, Urdu",
     Specialties: "AI for beginners, digital privacy, cybersecurity awareness",
     social: {
@@ -182,6 +211,8 @@ export const teachers = [
     },
   },
 ];
+
+// News Section Data
 
 export const newsList = [
   {
@@ -228,10 +259,7 @@ Certificate of completion provided`,
   },
 ];
 
-
-
-// src/data.js
-
+// upcoming and completed section data
 export const statsData = [
   {
     icon: "fa-book-open",
@@ -242,7 +270,7 @@ export const statsData = [
   },
   {
     icon: "fa-chalkboard-teacher",
-    color: "teal",
+    color: "yellow",
     count: 4,
     label: "Registered Trainers",
     sub: "View List",
@@ -263,5 +291,4 @@ export const statsData = [
   },
 ];
 
-
-export default { courses, teachers, newsList, statsData  };
+export default { courses, teachers, newsList, statsData };
