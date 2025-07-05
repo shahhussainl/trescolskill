@@ -14,7 +14,7 @@ export default function Contact() {
     <section className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-white">
       {/* Header Section */}
       <div className="py-12 px-4 md:px-8" data-aos="fade-down">
-        <div className="mb-4 ml-40">
+        <div className="mb-4 ml-32">
           <button
             onClick={() => navigate("/")}
             className="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 transition"
