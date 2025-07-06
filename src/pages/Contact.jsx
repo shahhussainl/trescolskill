@@ -1,12 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import ScrollBtn from "../components/ScrollBtn";
 import Footer from "../components/Footer";
 
-export default function Contact() {
+function Contact() {
   const navigate = useNavigate();
+  const [mapQuery, setMapQuery] = useState("Islamabad");
 
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
@@ -14,116 +15,126 @@ export default function Contact() {
 
   return (
     <>
-      <section className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-white">
+      <section className="min-h-screen bg-gradient-to-br from-white to-teal-50 dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-white">
         {/* Header Section */}
-        <div className="py-12 px-4 md:px-8" data-aos="fade-down">
-          <div className="mb-4 ml-32">
+        <div className="py-16 px-6 ml-24 md:px-16" data-aos="fade-down">
+          <div className="mb-6">
             <button
               onClick={() => navigate("/")}
-              className="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 transition"
+              className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow"
             >
               ← Back to Home
             </button>
           </div>
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-2">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">
               Let’s Connect
             </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               We’re here to answer your questions and guide you toward a secure
               future.
             </p>
           </div>
         </div>
 
+        {/* Info + Searchable Map */}
         <div
-          className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 gap-10"
+          className="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-14 items-start"
           data-aos="fade-up"
         >
           {/* Contact Info */}
-          <div className="space-y-6">
-            <div>
+          <div className="space-y-8">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md">
               <h2 className="text-2xl font-semibold mb-4">
                 Contact Information
               </h2>
               <p>
                 <strong>Phone:</strong>{" "}
-                <a href="tel:03300111172" className="text-teal-500">
-                  03300111172
-                </a>
+                <a href="tel:03300111172">03300111172</a>
               </p>
               <p>
                 <strong>Email:</strong>{" "}
-                <a href="mailto:info@trescol.net" className="text-teal-500">
-                  info@trescol.net
-                </a>
+                <a href="mailto:info@trescol.net">info@trescol.net</a>
               </p>
               <p>
                 <strong>Admissions Support:</strong>{" "}
-                <a href="mailto:info@trescol.net" className="text-teal-500">
-                  info@trescol.net
-                </a>
+                <a href="mailto:info@trescol.net">info@trescol.net</a>
               </p>
             </div>
-
-            <div>
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md">
               <h2 className="text-2xl font-semibold mb-4">Office Address</h2>
               <p>TRESCOL Labs</p>
               <p>24D, 2nd Floor, Rashid Plaza</p>
               <p>Main Jinnah Avenue, G-6/3 Blue Area Islamabad</p>
               <p>Pakistan</p>
             </div>
-
-            <div>
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md">
               <h2 className="text-2xl font-semibold mb-4">Working Hours</h2>
               <p>Monday – Friday: 9:00 AM – 5:00 PM</p>
               <p>Saturday – Sunday: Closed</p>
             </div>
           </div>
 
-          {/* Map */}
-          <div className="w-full h-80 md:h-full rounded-lg overflow-hidden shadow-lg">
-            <iframe
-              title="TRESCOL Location"
-              src="https://www.google.com/maps?q=24D,+Rashid+Plaza,+Jinnah+Avenue,+Islamabad,+Pakistan&output=embed"
-              width="100%"
-              height="100%"
-              allowFullScreen=""
-              loading="lazy"
-              className="w-full h-full border-0"
-            ></iframe>
+          {/* Searchable Map */}
+          <div className="space-y-6">
+            <div>
+              <label htmlFor="mapSearch" className="block font-medium mb-2">
+                Search a City or Location:
+              </label>
+              <input
+                id="mapSearch"
+                type="text"
+                placeholder="Enter city name (e.g. Lahore)"
+                className="w-full p-4 border border-gray-300 dark:border-gray-700 rounded-xl text-gray-800 dark:text-white bg-white dark:bg-gray-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+                value={mapQuery}
+                onChange={(e) => setMapQuery(e.target.value)}
+              />
+            </div>
+            <div className="w-full h-80 md:h-[400px] rounded-2xl overflow-hidden shadow-xl">
+              <iframe
+                title="TRESCOL Location"
+                src={`https://www.google.com/maps?q=${encodeURIComponent(
+                  mapQuery
+                )}&output=embed`}
+                width="100%"
+                height="100%"
+                allowFullScreen=""
+                loading="lazy"
+                className="w-full h-full border-0"
+              ></iframe>
+            </div>
           </div>
         </div>
 
         {/* Contact Form */}
-        <div className="max-w-4xl mx-auto py-10 px-4" data-aos="fade-up">
-          <h2 className="text-3xl font-bold mb-6 text-center">
+        <div className="max-w-5xl mx-auto py-24 px-4" data-aos="fade-up">
+          <h2 className="text-4xl font-bold mb-10 text-center">
             Send Us a Message
           </h2>
           <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <input
               type="text"
               placeholder="Your Name"
-              className="p-4 rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800"
+              className="p-4 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-white"
             />
             <input
               type="email"
               placeholder="Your Email"
-              className="p-4 rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800"
+              className="p-4 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-white"
             />
             <input
               type="text"
               placeholder="Subject"
-              className="md:col-span-2 p-4 rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800"
+              className="md:col-span-2 p-4 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-white"
             />
             <textarea
               placeholder="Your Message"
               rows="5"
-              className="md:col-span-2 p-4 rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800"
+              className="md:col-span-2 p-4 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-white"
             ></textarea>
             <button
               type="submit"
-              className="md:col-span-2 bg-teal-600 hover:bg-teal-700 text-white py-3 px-6 rounded shadow text-lg transition duration-300"
+              className="md:col-span-2 bg-teal-600 hover:bg-teal-700 text-white py-3 px-6 rounded-xl shadow-lg text-lg transition duration-300"
             >
               Submit
             </button>
@@ -149,3 +160,5 @@ export default function Contact() {
     </>
   );
 }
+
+export default Contact;

@@ -9,7 +9,7 @@ import "aos/dist/aos.css";
 import { courses, teachers, newsList, statsData } from "../data";
 import ScrollBtn from "../components/ScrollBtn";
 import Footer from "../components/Footer";
-import Hero from "../components/Hero"
+import Hero from "../components/Hero";
 import { useNavigate } from "react-router-dom";
 
 // Hero Section
@@ -131,9 +131,7 @@ function Home() {
 
   return (
     <>
-      {/* Hero section */}
-      <Hero/>
-     
+      <Hero />
       {/* Courses Section */}
       <section className="py-16 bg-gray-50" data-aos="fade-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -275,6 +273,12 @@ function Home() {
           <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
             News & Updates
           </h2>
+          <p className="text-center text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
+            Stay informed with the latest happenings at TRESCOL. From tech
+            workshops and course announcements to industry insights and student
+            success stories, our news section brings you the pulse of our
+            thriving learning community.
+          </p>
 
           <div className="relative flex items-center mt-20" data-aos="fade-up">
             <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-12">
@@ -369,6 +373,12 @@ function Home() {
           <h2 className="text-3xl font-bold text-white mb-10 text-center">
             Meet the Mentors Shaping the Cyber Future
           </h2>
+          <p className="text-center text-white max-w-3xl mx-auto mb-10 leading-relaxed">
+            Our instructors are industry veterans and passionate educators
+            dedicated to shaping the next generation of tech leaders. With
+            real-world experience and a focus on practical learning, they guide
+            students every step of the way.
+          </p>
 
           {/* Carousel Wrapper */}
           <div className="relative flex items-center">
@@ -511,9 +521,15 @@ function Home() {
           <p className="text-2xl font-semibold text-teal-600 uppercase tracking-widest mb-2 mt-10">
             Join With Us
           </p>
-          <h2 className="text-4xl font-extrabold text-gray-800 mb-12">
+          <h2 className="text-4xl font-extrabold text-gray-800 mb-6">
             Upcoming & Completed
           </h2>
+          <p className="text-center text-gray-700 max-w-3xl mx-auto mb-12 leading-relaxed">
+            Explore our track record of success and future opportunities. From
+            completed workshops that empowered learners to upcoming events
+            designed to inspire, we are committed to continuous learning and
+            impactful experiences.
+          </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
             {statsData.map((item, index) => (
