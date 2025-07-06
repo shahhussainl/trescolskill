@@ -184,8 +184,10 @@ function About() {
           </button>
         </div>
       </section>
-      <ScrollBtn />
-      <Footer/>
+      <div className="mt-80">
+        <ScrollBtn />
+        <Footer />
+      </div>
     </>
   );
 }

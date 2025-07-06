@@ -28,7 +28,7 @@ export default function Slip() {
   return (
     <section className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-white py-12 px-4">
       {/* Back Button */}
-      <div className="mb-6">
+      <div className="mb-6 ml-40">
         <button
           onClick={() => navigate("/")}
           className="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 transition"
