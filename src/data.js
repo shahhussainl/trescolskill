@@ -21,20 +21,36 @@ import founder2 from "./assets/W2_banner_thumbnail.jpg";
 
 export const people = [
   {
-    name: "Ather Ali",
-    title: "Chief Executive Officer (CEO)",
+    name: "Anushah",
+    title: "Chief of Marketing & Management",
     image: founder1,
     quote:
-      "TRESCOL is not just a tech institute—it’s a mindset revolution. We’re empowering people today to lead the innovations of tomorrow.",
-    bio: "Ather Ali is the visionary force behind TRESCOL, bringing decades of expertise in cybersecurity, tech education, and digital transformation. He has led multiple national-level initiatives and built partnerships with global institutions to make tech education accessible, impactful, and future-ready.",
+      "Leadership in marketing means more than visibility—it means vision. We’re not following trends; we’re shaping the tech narrative at TRESCOL.",
+    bio: "Overseeing the marketing department, Anushah is the strategic lead behind outreach and engagement. With an eye for data and a heart for storytelling, she supervises campaigns across departments and ensures every piece aligns with TRESCOL’s bold vision and brand language. ",
   },
   {
-    name: "Awais Liaqat",
-    title: "Chief Operating Officer (COO)",
+    name: "Salaar Sultan",
+    title: "Head of Content & Digital Communication",
     image: founder2,
     quote:
-      "The real power of AI isn’t in automation—it’s in how we train minds to think bigger, faster, and farther. That’s the TRESCOL edge.",
-    bio: "Awais Liaqat ensures seamless operations of all programs, training, and internal systems. Known for strategic thinking and operational excellence, he drives TRESCOL forward with clarity and purpose.",
+      "Don’t just think outside the box; make the box disappear.",
+    bio: "Salaar is the creative architect of TRESCOL’s digital presence. From strategic copy to campaign development, he leads the content ecosystem that connects learners to TRESCOL’s mission in powerful, resonant ways. With a unique mix of creativity and technical insight, Salaar crafts every message to inspire, inform, and convert.",
+  },
+  {
+    name: "Talha Ahmed",
+    title: " Chief of Design and Aesthetics",
+    image: founder2,
+    quote:
+      "Great design isn’t made for now, it’s made to lead the future.",
+    bio: "Talha leads the creative design arm of TRESCOL with a dynamic visual style that reflects the institution’s cutting-edge philosophy. He transforms complex ideas into visually compelling experiences that resonate across platforms; from brochures to banners, digital screens to social feeds.",
+  },
+   {
+    name: "Fatima",
+    title: " Chief of Design and Aesthetics",
+    image: founder2,
+    quote:
+      "A single visual can unlock understanding faster than a thousand words; especially in a world shaped by data and AI.",
+    bio: "Working closely with Talha, Fatima blends aesthetics and function in every visual. Her expertise lies in storytelling through design, ensuring that every pixel speaks with purpose and polish. From brand visuals to course content, she’s the eye behind the experience.",
   },
 ];
 
@@ -249,7 +265,7 @@ Case studies of successful OSINT operations`,
     image: newsImg3,
     date: "2024-08-19 09:25:32",
     postedBy: "Admin",
-    title: "OSINT Tools Workshop",
+    title: "OSINT Tools Workshop and techinques",
     description: `"Join our workshop on OSINT tools and techniques..."`,
     fullDescription: `"OSINT Tools Workshop"
 Hands-on workshop for learning OSINT tools

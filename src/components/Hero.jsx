@@ -77,7 +77,7 @@ const Hero = () => {
         <div className="absolute top-10 left-10 w-40 h-40 bg-purple-300 opacity-60 blur-3xl rounded-full z-0 animate__animated animate__zoomIn animate__infinite animate__slow"></div>
         <div className="absolute bottom-10 right-10 w-48 h-48 bg-pink-300 opacity-50 blur-3xl rounded-full z-0 animate__animated animate__zoomIn animate__infinite animate__slower"></div>
         <div className="relative z-10 text-center px-4 animate__animated animate__fadeInUp animate__slower">
-          <h2 className="text-sm md:text-base font-semibold uppercase tracking-widest text-gray-700 mb-2">
+          <h2 className="text-sm md:text-base font-bold uppercase tracking-widest text-gray-700 mb-2">
             Admission'2025
           </h2>
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-3">
@@ -89,7 +89,7 @@ const Hero = () => {
           <h3 className="text-lg md:text-2xl font-semibold text-gray-800 mb-4">
             Future with Trescol
           </h3>
-          <p className="text-md md:text-xl text-gray-700 mb-6">
+          <p className="text-sm font-bold  md:text-xl text-gray-700 mb-6">
             Find Your Preferred Courses & Improve Your Skills
           </p>
           <button className="px-6 py-3 bg-teal-500 text-white rounded-full hover:bg-teal-600 transition animate__animated animate__pulse animate__infinite animate__slower">
