@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useNewsContext } from "../context/NewsContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import ScrollBtn from "../components/ScrollBtn";
 
 function News() {
   useEffect(() => {
@@ -138,6 +139,7 @@ function News() {
           </>
         )}
       </div>
+      <ScrollBtn/>
     </div>
   );
 }

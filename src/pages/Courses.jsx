@@ -3,6 +3,7 @@ import { useCourseContext } from "../context/CourseContext";
 import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import ScrollBtn from "../components/ScrollBtn";
 
 function Courses() {
   const { courses } = useCourseContext();
@@ -87,7 +88,9 @@ function Courses() {
           </div>
         )}
       </div>
+       <ScrollBtn />
     </div>
+    
   );
 }
 

@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import UploadSlip from "./pages/UploadSlip"
 
+
 function App() {
   return (
     <div className="min-h-screen bg-gray-100">

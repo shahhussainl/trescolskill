@@ -55,6 +55,8 @@ function Navbar() {
               Upload Slip
             </button>
           </div>
+
+          {/*  Mobile Menu Toggle Button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMenu}

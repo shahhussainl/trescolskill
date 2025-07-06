@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useTeacherContext } from "../context/TeacherContext";
 import { useNavigate } from "react-router-dom";
+import ScrollBtn from "../components/ScrollBtn";
 
 function Teachers() {
   const { allTeachers } = useTeacherContext();
@@ -90,6 +91,7 @@ function Teachers() {
           </div>
         )}
       </div>
+      <ScrollBtn/>
     </section>
   );
 }

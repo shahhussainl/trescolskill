@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useAboutContext } from "../context/AboutContext";
 import thumbnail from "../assets/W1_banner_thumbnail.jpg";
+import ScrollBtn from "../components/ScrollBtn";
 
 function About() {
   const navigate = useNavigate();
@@ -182,6 +183,7 @@ function About() {
           </button>
         </div>
       </section>
+      <ScrollBtn />
     </>
   );
 }
