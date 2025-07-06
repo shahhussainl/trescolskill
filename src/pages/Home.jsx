@@ -11,6 +11,7 @@ import "animate.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { courses, teachers, newsList, statsData } from "../data";
+import ScrollBtn from "../components/ScrollBtn";
 
 import { useNavigate } from "react-router-dom";
 
@@ -180,38 +181,6 @@ function Home() {
     );
   }
 
-  // Scroll to Top State and Handler
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsVisible(window.scrollY > 300); // Show button after scrolling 300px
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    const start = window.scrollY;
-    const startTime = performance.now();
-    const duration = 1200; // Adjusted duration for noticeable acceleration
-
-    // Custom easing: starts slow, then sharply accelerates (cubic easing)
-    const easeInCubic = (t) => t * t * t; // Slow start, sudden acceleration
-
-    const scroll = (currentTime) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1); // Ensure progress doesn't exceed 1
-      const easeProgress = easeInCubic(progress); // Apply cubic easing
-      window.scrollTo(0, start * (1 - easeProgress)); // Scroll from current position to 0
-
-      if (progress < 1) {
-        requestAnimationFrame(scroll);
-      }
-    };
-
-    requestAnimationFrame(scroll);
-  };
   return (
     <>
       {/* Hero section */}
@@ -768,34 +737,7 @@ function Home() {
           </div>
         </div>
       </footer>
-
-      {/* Scroll Button */}
-      {isVisible && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-teal-500 text-white p-6 rounded-full shadow-lg hover:bg-teal-600 transition-opacity duration-300 z-50 animate-fadeIn"
-          aria-label="Scroll to top"
-          style={{
-            opacity: 0,
-            animationDelay: "0.1s",
-            animationFillMode: "forwards",
-          }}
-        >
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M5 10l7-7m0 0l7 7m-7-7v18"
-            />
-          </svg>
-        </button>
-      )}
+      <ScrollBtn />
     </>
   );
 }

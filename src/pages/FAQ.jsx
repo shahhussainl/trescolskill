@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import ScrollBtn from "../components/ScrollBtn";
 
 const faqsData = [
   {
@@ -89,6 +90,7 @@ export default function Faqs() {
           </div>
         ))}
       </div>
+      <ScrollBtn/>
     </section>
   );
 }
