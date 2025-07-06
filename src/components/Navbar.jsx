@@ -18,6 +18,7 @@ function Navbar() {
     { name: "Teachers", path: "/teachers" },
     { name: "Contact", path: "/contact" },
     { name: "FAQ", path: "/faq" },
+    
   ];
 
   return (
@@ -87,10 +88,12 @@ function Navbar() {
                 {item.name}
               </NavLink>
             ))}
-            <button className="w-full text-left bg-teal-600 hover:bg-teal-700 text-white px-3 py-2 rounded-md flex items-center transition-colors duration-200">
-              <Upload className="w-5 h-5 mr-2" />
-              Upload Slip
-            </button>
+            <NavLink to="/upload-slip">
+              <button className="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-md flex items-center transition-colors duration-200">
+                <Upload className="w-5 h-5 mr-2" />
+                Upload Slip
+              </button>
+            </NavLink>
           </div>
         </div>
       )}

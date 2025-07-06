@@ -7,6 +7,7 @@ import News from "./pages/News";
 import Teachers from "./pages/Teachers";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
+import UploadSlip from "./pages/UploadSlip"
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/teachers" element={<Teachers />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />
+        <Route path="/upload-slip" element={<UploadSlip />} />
       </Routes>
     </div>
   );
