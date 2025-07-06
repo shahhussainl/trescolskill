@@ -1,68 +1,16 @@
 import thumbnail from "../assets/W1_banner_thumbnail.jpg";
-import sliderImg from "../assets/sliderimg.jpg";
-import React, { useRef, useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { useCourseContext } from "../context/CourseContext";
 import { useNewsContext } from "../context/NewsContext";
 import { useTeacherContext } from "../context/TeacherContext";
-import { Canvas, useFrame } from "@react-three/fiber";
-import * as THREE from "three";
 import "animate.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { courses, teachers, newsList, statsData } from "../data";
 import ScrollBtn from "../components/ScrollBtn";
-
+import Footer from "../components/Footer";
+import Hero from "../components/Hero"
 import { useNavigate } from "react-router-dom";
-
-// Particles Component
-function Particles() {
-  const particlesRef = useRef();
-  const particleCount = 100;
-
-  useEffect(() => {
-    const particles = particlesRef.current;
-    particles.children.forEach((particle) => {
-      particle.velocity = new THREE.Vector3(
-        (Math.random() - 0.5) * 0.02,
-        (Math.random() - 0.5) * 0.02,
-        (Math.random() - 0.5) * 0.02
-      );
-    });
-  }, []);
-
-  useFrame(() => {
-    particlesRef.current.children.forEach((particle) => {
-      particle.position.add(particle.velocity);
-      if (particle.position.distanceTo(new THREE.Vector3(0, 0, 0)) > 15) {
-        particle.position.set(
-          (Math.random() - 0.5) * 20,
-          (Math.random() - 0.5) * 20,
-          (Math.random() - 0.5) * 20
-        );
-      }
-    });
-    particlesRef.current.rotation.y += 0.002;
-  });
-
-  return (
-    <group ref={particlesRef}>
-      {Array.from({ length: particleCount }).map((_, i) => (
-        <mesh
-          key={i}
-          position={[
-            (Math.random() - 0.5) * 20,
-            (Math.random() - 0.5) * 20,
-            (Math.random() - 0.5) * 20,
-          ]}
-        >
-          <sphereGeometry args={[0.1, 16, 16]} />
-          <meshBasicMaterial color="#ffffff" transparent opacity={0.6} />
-        </mesh>
-      ))}
-    </group>
-  );
-}
 
 // Hero Section
 function Home() {
@@ -184,44 +132,8 @@ function Home() {
   return (
     <>
       {/* Hero section */}
-      <section
-        className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden"
-        data-aos="fade-up"
-      >
-        <img
-          src={sliderImg}
-          alt="Trescol Background"
-          className="absolute inset-0 w-full h-full object-cover opacity-60 z-0"
-        />
-        <div className="absolute inset-0 z-0 opacity-30">
-          <Canvas camera={{ position: [0, 0, 10], fov: 75 }}>
-            <Particles />
-          </Canvas>
-        </div>
-        <div className="absolute top-10 left-10 w-40 h-40 bg-purple-300 opacity-60 blur-3xl rounded-full z-0 animate__animated animate__zoomIn animate__infinite animate__slow"></div>
-        <div className="absolute bottom-10 right-10 w-48 h-48 bg-pink-300 opacity-50 blur-3xl rounded-full z-0 animate__animated animate__zoomIn animate__infinite animate__slower"></div>
-        <div className="relative z-10 text-center px-4 animate__animated animate__fadeInUp animate__slower">
-          <h2 className="text-sm md:text-base font-semibold uppercase tracking-widest text-gray-700 mb-2">
-            Admission'2025
-          </h2>
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-3">
-            Leadership & Professional
-          </h1>
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-3">
-            Development Center
-          </h1>
-          <h3 className="text-lg md:text-2xl font-semibold text-gray-800 mb-4">
-            Future with Trescol
-          </h3>
-          <p className="text-md md:text-xl text-gray-700 mb-6">
-            Find Your Preferred Courses & Improve Your Skills
-          </p>
-          <button className="px-6 py-3 bg-teal-500 text-white rounded-full hover:bg-teal-600 transition animate__animated animate__pulse animate__infinite animate__slower">
-            Explore Courses
-          </button>
-        </div>
-      </section>
-
+      <Hero/>
+     
       {/* Courses Section */}
       <section className="py-16 bg-gray-50" data-aos="fade-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -625,118 +537,7 @@ function Home() {
           </div>
         </div>
       </section>
-
-      <footer className="bg-teal-900 text-white pt-16 pb-8" data-aos="fade-up">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
-          {/* Logo + Tagline */}
-          <div>
-            <h2 className="text-2xl font-bold text-white mb-2">TRESCOL</h2>
-            <p className="text-lg text-white">
-              Building a tech-savvy future through cybersecurity, AI & digital
-              excellence.
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-2xl font-semibold text-white mb-4">
-              Quick Links
-            </h3>
-            <ul className="space-y-2 text-lg">
-              <li>
-                <NavLink to="/" className="hover:text-white transition">
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/about" className="hover:text-white transition">
-                  About
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/courses" className="hover:text-white transition">
-                  Courses
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/news" className="hover:text-white transition">
-                  News
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/teachers" className="hover:text-white transition">
-                  Teachers
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/contact" className="hover:text-white transition">
-                  Contact
-                </NavLink>
-              </li>
-            </ul>
-          </div>
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-2xl font-semibold text-white mb-4">Contact</h3>
-            <ul className="space-y-3 text-lg">
-              <li>
-                <i className="fas fa-map-marker-alt mr-2 text-teal-400"></i>
-                Islamabad, Pakistan
-              </li>
-              <li>
-                <i className="fas fa-envelope mr-2 text-teal-400"></i>
-                info@trecsol.net
-              </li>
-              <li>
-                <i className="fas fa-phone-alt mr-2 text-teal-400"></i>
-                +923300111172
-              </li>
-            </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div>
-            <h3 className="text-2xl font-semibold text-white mb-4">
-              Subscribe
-            </h3>
-            <p className="text-lg text-white mb-4">
-              Get updates on latest courses & events.
-            </p>
-            <form className="flex flex-col gap-3">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="px-4 py-2 rounded-md bg-gray-800 text-white text-sm border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 placeholder:text-white"
-              />
-              <button
-                type="submit"
-                className="bg-teal-500 hover:bg-teal-600 text-white py-2 rounded-md transition text-sm"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </div>
-
-        {/* Divider */}
-        <div className="border-t border-gray-500 mt-12 pt-6 text-center text-lg">
-          <p>&copy; {new Date().getFullYear()} TRESCOL. All rights reserved.</p>
-          <div className="flex justify-center gap-5 mt-4 text-teal-400">
-            <a href="#" className="hover:text-white">
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" className="hover:text-white">
-              <i className="fab fa-twitter"></i>
-            </a>
-            <a href="#" className="hover:text-white">
-              <i className="fab fa-linkedin-in"></i>
-            </a>
-            <a href="#" className="hover:text-white">
-              <i className="fab fa-github"></i>
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
       <ScrollBtn />
     </>
   );

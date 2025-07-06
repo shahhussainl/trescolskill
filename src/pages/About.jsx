@@ -5,6 +5,7 @@ import "aos/dist/aos.css";
 import { useAboutContext } from "../context/AboutContext";
 import thumbnail from "../assets/W1_banner_thumbnail.jpg";
 import ScrollBtn from "../components/ScrollBtn";
+import Footer from "../components/Footer";
 
 function About() {
   const navigate = useNavigate();
@@ -183,7 +184,10 @@ function About() {
           </button>
         </div>
       </section>
-      <ScrollBtn />
+      <div className="mt-80">
+        <ScrollBtn />
+        <Footer />
+      </div>
     </>
   );
 }
