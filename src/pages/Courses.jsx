@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useCourseContext } from "../context/CourseContext";
-import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import ScrollBtn from "../components/ScrollBtn";
@@ -8,28 +7,15 @@ import Footer from "../components/Footer";
 
 function Courses() {
   const { courses } = useCourseContext();
-  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleBackClick = () => {
-    navigate("/");
-  };
-
   return (
     <>
       <div className="py-16 bg-gray-100 min-h-screen" data-aos="fade-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-6">
-            <button
-              onClick={handleBackClick}
-              className="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 transition ml-2"
-            >
-              ← Back to Home
-            </button>
-          </div>
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             All Featured Courses
           </h2>
@@ -90,8 +76,6 @@ function Courses() {
             </div>
           )}
         </div>
-
-        
       </div>
       <ScrollBtn />
       <Footer />

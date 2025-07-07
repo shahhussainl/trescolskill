@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useNewsContext } from "../context/NewsContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -14,7 +13,7 @@ function News() {
   const [tags, setTags] = useState([]);
 
   const { selectedNews, setSelectedNews, allNews } = useNewsContext();
-  const navigate = useNavigate();
+
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -52,10 +51,6 @@ function News() {
     setSelectedNews(item);
   };
 
-  const handleBackClick = () => {
-    setSelectedNews(null);
-    navigate("/");
-  };
 
   const categories = [
     "All",
@@ -69,15 +64,6 @@ function News() {
     <>
       <div className="py-16 bg-gray-100 min-h-screen" data-aos="fade-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-6">
-            <button
-              onClick={handleBackClick}
-              className="bg-teal-500 text-white px-4 py-2 ml-2 rounded hover:bg-teal-600 transition "
-            >
-              ← Back to Home
-            </button>
-          </div>
-
           {selectedNews ? (
             <div className="grid md:grid-cols-3 gap-8">
               <div className="md:col-span-2 bg-white p-6 rounded-lg shadow-md">

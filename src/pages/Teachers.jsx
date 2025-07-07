@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
 import { useTeacherContext } from "../context/TeacherContext";
-import { useNavigate } from "react-router-dom";
 import ScrollBtn from "../components/ScrollBtn";
 import Footer from "../components/Footer";
 
 function Teachers() {
   const { allTeachers } = useTeacherContext();
-  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -16,14 +14,6 @@ function Teachers() {
     <>
       <section className="py-16 bg-white min-h-screen" data-aos="fade-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-6">
-            <button
-              onClick={() => navigate("/")}
-              className="bg-teal-500 text-white px-4 py-2 ml-2 rounded hover:bg-teal-600 transition"
-            >
-              ← Back to Home
-            </button>
-          </div>
           <h2 className="text-3xl font-bold mb-8 text-center">
             Our Team of Experts
           </h2>

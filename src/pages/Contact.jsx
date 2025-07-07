@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import ScrollBtn from "../components/ScrollBtn";
 import Footer from "../components/Footer";
 
 function Contact() {
-  const navigate = useNavigate();
   const [mapQuery, setMapQuery] = useState("Islamabad");
 
   useEffect(() => {
@@ -15,22 +13,14 @@ function Contact() {
 
   return (
     <>
-      <section className="min-h-screen bg-gradient-to-br from-white to-teal-50 dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-white">
+      <section className="min-h-screen bg-gradient-to-br from-white to-teal-50 text-gray-800">
         {/* Header Section */}
         <div className="py-16 px-6 ml-24 md:px-16" data-aos="fade-down">
-          <div className="mb-6">
-            <button
-              onClick={() => navigate("/")}
-              className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition shadow"
-            >
-              ← Back to Home
-            </button>
-          </div>
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
               Let’s Connect
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
               We’re here to answer your questions and guide you toward a secure
               future.
             </p>
@@ -44,7 +34,7 @@ function Contact() {
         >
           {/* Contact Info */}
           <div className="space-y-8">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md">
+            <div className="bg-white p-6 rounded-2xl shadow-md">
               <h2 className="text-2xl font-semibold mb-4">
                 Contact Information
               </h2>
@@ -61,14 +51,14 @@ function Contact() {
                 <a href="mailto:info@trescol.net">info@trescol.net</a>
               </p>
             </div>
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md">
+            <div className="bg-white p-6 rounded-2xl shadow-md">
               <h2 className="text-2xl font-semibold mb-4">Office Address</h2>
               <p>TRESCOL Labs</p>
               <p>24D, 2nd Floor, Rashid Plaza</p>
               <p>Main Jinnah Avenue, G-6/3 Blue Area Islamabad</p>
               <p>Pakistan</p>
             </div>
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md">
+            <div className="bg-white p-6 rounded-2xl shadow-md">
               <h2 className="text-2xl font-semibold mb-4">Working Hours</h2>
               <p>Monday – Friday: 9:00 AM – 5:00 PM</p>
               <p>Saturday – Sunday: Closed</p>
@@ -85,7 +75,7 @@ function Contact() {
                 id="mapSearch"
                 type="text"
                 placeholder="Enter city name (e.g. Lahore)"
-                className="w-full p-4 border border-gray-300 dark:border-gray-700 rounded-xl text-gray-800 dark:text-white bg-white dark:bg-gray-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="w-full p-4 border border-gray-300 rounded-xl text-gray-800 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
                 value={mapQuery}
                 onChange={(e) => setMapQuery(e.target.value)}
               />
@@ -115,22 +105,22 @@ function Contact() {
             <input
               type="text"
               placeholder="Your Name"
-              className="p-4 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-white"
+              className="p-4 rounded-xl border border-gray-300 bg-white text-gray-800"
             />
             <input
               type="email"
               placeholder="Your Email"
-              className="p-4 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-white"
+              className="p-4 rounded-xl border border-gray-300 bg-white text-gray-800"
             />
             <input
               type="text"
               placeholder="Subject"
-              className="md:col-span-2 p-4 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-white"
+              className="md:col-span-2 p-4 rounded-xl border border-gray-300 bg-white text-gray-800"
             />
             <textarea
               placeholder="Your Message"
               rows="5"
-              className="md:col-span-2 p-4 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-white"
+              className="md:col-span-2 p-4 rounded-xl border border-gray-300 bg-white text-gray-800"
             ></textarea>
             <button
               type="submit"

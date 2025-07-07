@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useAboutContext } from "../context/AboutContext";
@@ -8,7 +7,6 @@ import ScrollBtn from "../components/ScrollBtn";
 import Footer from "../components/Footer";
 
 function About() {
-  const navigate = useNavigate();
   const { people } = useAboutContext();
 
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
@@ -19,7 +17,6 @@ function About() {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleBackToHome = () => navigate("/");
   const handlePlayVideo = () => setIsVideoModalOpen(true);
   const handleCloseVideo = () => setIsVideoModalOpen(false);
 
@@ -47,14 +44,6 @@ function About() {
     <>
       <section className="bg-white text-gray-800 py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-6 ml-10">
-            <button
-              onClick={handleBackToHome}
-              className="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 transition"
-            >
-              ← Back to Home
-            </button>
-          </div>
           <div>
             {/* Header */}
             <h1
