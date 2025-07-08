@@ -7,7 +7,6 @@ import { CourseProvider } from "./context/CourseContext";
 import { NewsProvider } from "./context/NewsContext";
 import { TeacherProvider } from "./context/TeacherContext";
 import { AboutProvider } from "./context/AboutContext";
-import { ThemeProvider } from "./context/ThemeContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -16,9 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <CourseProvider>
           <NewsProvider>
             <TeacherProvider>
-              <ThemeProvider>
-                <App />
-              </ThemeProvider>
+              <App />
             </TeacherProvider>
           </NewsProvider>
         </CourseProvider>

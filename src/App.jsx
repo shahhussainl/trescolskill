@@ -8,13 +8,9 @@ import Teachers from "./pages/Teachers";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import UploadSlip from "./pages/UploadSlip";
-import { useTheme } from "./context/ThemeContext";
-
 
 function App() {
-   const { theme } = useTheme();
   return (
-    <div className={theme === "dark" ? "dark" : ""}>
     <div className="min-h-screen bg-gray-100">
       <Navbar />
       <Routes>
@@ -26,9 +22,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/upload-slip" element={<UploadSlip />} />
-
       </Routes>
-    </div>
     </div>
   );
 }

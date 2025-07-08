@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Menu, X, Upload, Sun, Moon } from "lucide-react";
-import { useTheme } from "../context/ThemeContext";
+import { Menu, X, Upload} from "lucide-react";
 import logo from "../assets/trescol logo white-04.png";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -32,7 +30,7 @@ function Navbar() {
                 <img src={logo} alt="Trescol Logo" className="h-14 w-auto" />
               </div>
             </div>
-            <div className="hidden md:ml-40 md:flex md:space-x-8">
+            <div className="hidden md:ml-60 md:flex md:space-x-8">
               {navItems.map((item) => (
                 <NavLink
                   key={item.name}
@@ -50,32 +48,13 @@ function Navbar() {
               ))}
             </div>
           </div>
-          {/* Right-side buttons: Upload + Toggle */}
-          <div className="hidden md:flex md:items-center space-x-8">
+          <div className="hidden md:flex md:items-center">
             <NavLink to="/upload-slip">
-              <button className="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-md flex items-center transition-colors duration-200">
+              <button className="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 mr-16 rounded-md flex items-center transition-colors duration-200">
                 <Upload className="w-5 h-5 mr-2" />
                 Upload Slip
               </button>
             </NavLink>
-
-            <button
-              onClick={toggleTheme}
-              className={`w-14 h-7 flex items-center rounded-full px-1 transition-colors duration-300 ${
-                theme === "dark" ? "bg-teal-400" : "bg-gray-300"
-              }`}
-              title="Toggle Theme"
-            >
-              <div
-                className={`w-5 h-5 rounded-full shadow-md transform duration-300 ease-in-out flex items-center justify-center ${
-                  theme === "dark"
-                    ? "translate-x-7 bg-white text-teal-500"
-                    : "translate-x-0 bg-white text-gray-600"
-                }`}
-              >
-                {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
-              </div>
-            </button>
           </div>
 
           {/*  Mobile Menu Toggle Button */}
@@ -118,23 +97,6 @@ function Navbar() {
                 Upload Slip
               </button>
             </NavLink>
-            <button
-              onClick={toggleTheme}
-              className={`w-14 h-7 flex items-center rounded-full px-1 transition-colors duration-300 ${
-                theme === "dark" ? "bg-teal-400" : "bg-gray-300"
-              }`}
-              title="Toggle Theme"
-            >
-              <div
-                className={`w-5 h-5 rounded-full shadow-md transform duration-300 ease-in-out flex items-center justify-center ${
-                  theme === "dark"
-                    ? "translate-x-7 bg-white text-teal-500"
-                    : "translate-x-0 bg-white text-gray-600"
-                }`}
-              >
-                {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
-              </div>
-            </button>
           </div>
         </div>
       )}
