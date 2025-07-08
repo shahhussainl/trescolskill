@@ -55,12 +55,10 @@ function Particles() {
   );
 }
 
-
 const Hero = () => {
-
   return (
     <div>
-         <section
+      <section
         className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden"
         data-aos="fade-up"
       >
@@ -97,9 +95,8 @@ const Hero = () => {
           </button>
         </div>
       </section>
-
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

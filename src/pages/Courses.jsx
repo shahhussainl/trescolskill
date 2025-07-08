@@ -1,11 +1,21 @@
 import React, { useEffect } from "react";
 import { useCourseContext } from "../context/CourseContext";
+import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import ScrollBtn from "../components/ScrollBtn";
 import Footer from "../components/Footer";
+import Background from "../assets/background.png"
 
 function Courses() {
+  const navigate = useNavigate();
+
+
+  const handleRegister = (courseTitle) => {
+  navigate("/register", { state: { courseTitle } });
+};
+
+
   const { courses } = useCourseContext();
 
   useEffect(() => {

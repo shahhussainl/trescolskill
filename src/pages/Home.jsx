@@ -9,6 +9,7 @@ import "aos/dist/aos.css";
 import { courses, teachers, newsList, statsData } from "../data";
 import ScrollBtn from "../components/ScrollBtn";
 import Footer from "../components/Footer";
+import Background from "../assets/background.png";
 import Hero from "../components/Hero";
 import { useNavigate } from "react-router-dom";
 
@@ -133,7 +134,11 @@ function Home() {
     <>
       <Hero />
       {/* Courses Section */}
-      <section className="py-16 bg-gray-50" data-aos="fade-up">
+      <section
+        className="py-16 bg-cover bg-no-repeat bg-center px-4 sm:px-6 lg:px-8"
+        style={{ backgroundImage: `url(${Background})` }}
+        data-aos="fade-up"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Explore Our Featured Courses
