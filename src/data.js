@@ -55,88 +55,88 @@ export const people = [
 ];
 
 // Courses Section Data
-export const courses = [
-  {
-    id: 1,
-    title: "Secure Email System + Secure Web Series",
-    image: course1,
-    trainer: {
-      name: "Rizwan Saeed",
-      avatar: "https://randomuser.me/api/portraits/men/1.jpg",
-    },
-    description:
-      "Protect your digital communications from modern threats with hands-on security tools and real-time defense techniques.",
-    postedOn: "2025-03-01",
-    applyBefore: "2025-07-07",
-    duration: "20 Hours ",
-    Venue: "trescol",
-    fees: "20000PKR",
-  },
-  {
-    id: 2,
-    title: "Secure Email System + Secure Web Series",
-    image: course2,
-    trainer: {
-      name: "Dr Sanaullah",
-      avatar: "https://randomuser.me/api/portraits/men/2.jpg",
-    },
-    description:
-      "Master the fundamental practices of digital self-defense. Perfect for beginners looking to take control of their personal cyber safety. ",
-    postedOn: "2025-02-25",
-    applyBefore: "2025-04-28",
-    duration: "10 Hours ",
-    Venue: "trescol",
-    fees: "11000PKR",
-  },
-  {
-    id: 3,
-    title: "Secure Configuration for Internet (Proxy, DNS, FWs) ",
-    image: course3,
-    trainer: {
-      name: "Rao Nazra",
-      avatar: "https://randomuser.me/api/portraits/women/1.jpg",
-    },
-    description:
-      "Configure firewalls, DNS, and proxy settings like a pro. This course gets under the hood of your network’s first line of defense. ",
-    postedOn: "2025-04-20",
-    applyBefore: "2025-03-31",
-    duration: "20 Hours ",
-    Venue: "trescol",
-    fees: "9000PKR",
-  },
-  {
-    id: 4,
-    title: "Secure Email System + Secure Web Series",
-    image: course4,
-    trainer: {
-      name: "Ali Khan",
-      avatar: "https://randomuser.me/api/portraits/men/3.jpg",
-    },
-    description:
-      "Break through the buzzwords and understand how AI can shape industries — and your future career. No prior experience needed. ",
-    postedOn: "2025-05-01",
-    applyBefore: "2025-07-01",
-    duration: "10 Hours ",
-    Venue: "trescol",
-    fees: "7500PKR",
-  },
-  {
-    id: 5,
-    title: " VPNs – Secure Data Transfer + Video Conferencing",
-    image: course6,
-    trainer: {
-      name: "Ayesha Nazeer",
-      avatar: "https://randomuser.me/api/portraits/women/4.jpg",
-    },
-    description:
-      "Master the art of encrypted communication and secure data movement across networks with modern VPN technologies.",
-    postedOn: "2025-04-10",
-    applyBefore: "2025-06-15",
-    duration: "20 Hours",
-    Venue: "trescol",
-    fees: "15000PKR",
-  },
-];
+// export const courses = [
+//   {
+//     id: 1,
+//     title: "Secure Email System + Secure Web Series",
+//     image: course1,
+//     trainer: {
+//       name: "Rizwan Saeed",
+//       avatar: "https://randomuser.me/api/portraits/men/1.jpg",
+//     },
+//     description:
+//       "Protect your digital communications from modern threats with hands-on security tools and real-time defense techniques.",
+//     scheduleCourse: "2025-03-01",
+//     applyBeforeDate: "2025-07-07",
+//     duration: "20 Hours ",
+//     Venue: "trescol",
+//     fees: "20000PKR",
+//   },
+//   {
+//     id: 2,
+//     title: "Secure Email System + Secure Web Series",
+//     image: course2,
+//     trainer: {
+//       name: "Dr Sanaullah",
+//       avatar: "https://randomuser.me/api/portraits/men/2.jpg",
+//     },
+//     description:
+//       "Master the fundamental practices of digital self-defense. Perfect for beginners looking to take control of their personal cyber safety. ",
+//     scheduleCourse: "2025-02-25",
+//     applyBeforeDate: "2025-04-28",
+//     duration: "10 Hours ",
+//     Venue: "trescol",
+//     fees: "11000PKR",
+//   },
+//   {
+//     id: 3,
+//     title: "Secure Configuration for Internet (Proxy, DNS, FWs) ",
+//     image: course3,
+//     trainer: {
+//       name: "Rao Nazra",
+//       avatar: "https://randomuser.me/api/portraits/women/1.jpg",
+//     },
+//     description:
+//       "Configure firewalls, DNS, and proxy settings like a pro. This course gets under the hood of your network’s first line of defense. ",
+//     scheduleCourse: "2025-04-20",
+//     applyBeforeDate: "2025-03-31",
+//     duration: "20 Hours ",
+//     Venue: "trescol",
+//     fees: "9000PKR",
+//   },
+//   {
+//     id: 4,
+//     title: "Secure Email System + Secure Web Series",
+//     image: course4,
+//     trainer: {
+//       name: "Ali Khan",
+//       avatar: "https://randomuser.me/api/portraits/men/3.jpg",
+//     },
+//     description:
+//       "Break through the buzzwords and understand how AI can shape industries — and your future career. No prior experience needed. ",
+//     scheduleCourse: "2025-05-01",
+//     applyBeforeDate: "2025-07-01",
+//     duration: "10 Hours ",
+//     Venue: "trescol",
+//     fees: "7500PKR",
+//   },
+//   {
+//     id: 5,
+//     title: " VPNs – Secure Data Transfer + Video Conferencing",
+//     image: course6,
+//     trainer: {
+//       name: "Ayesha Nazeer",
+//       avatar: "https://randomuser.me/api/portraits/women/4.jpg",
+//     },
+//     description:
+//       "Master the art of encrypted communication and secure data movement across networks with modern VPN technologies.",
+//     scheduleCourse: "2025-04-10",
+//     applyBeforeDate: "2025-06-15",
+//     duration: "20 Hours",
+//     Venue: "trescol",
+//     fees: "15000PKR",
+//   },
+// ];
 
 // Teachers Section data
 
@@ -307,4 +307,4 @@ export const statsData = [
   },
 ];
 
-export default { courses, teachers, newsList, statsData };
+export default { teachers, newsList, statsData };

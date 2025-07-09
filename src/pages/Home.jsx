@@ -6,14 +6,13 @@ import { useTeacherContext } from "../context/TeacherContext";
 import "animate.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { courses, teachers, newsList, statsData } from "../data";
+import { teachers, newsList, statsData } from "../data";
 import ScrollBtn from "../components/ScrollBtn";
 import Footer from "../components/Footer";
 import Background from "../assets/background.png";
 import Hero from "../components/Hero";
 import { useNavigate } from "react-router-dom";
 
-// Hero Section
 function Home() {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
@@ -31,11 +30,13 @@ function Home() {
   useEffect(() => {
     const handleResize = () => {
       setCardsPerPage(getCardsPerPage());
-      setCurrentStartIndex(0); // reset to start when resizing
+      setCurrentStartIndex(0);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const { courses } = useCourseContext();
 
   const maxIndex = Math.max(0, courses.length - cardsPerPage);
   const visibleCourses = courses.slice(
@@ -45,7 +46,6 @@ function Home() {
 
   const [currentTeacherStartIndex, setCurrentTeacherStartIndex] = useState(0);
   const [teachersPerPage, setTeachersPerPage] = useState(getCardsPerPage());
-
   const maxTeacherIndex = Math.max(0, teachers.length - teachersPerPage);
 
   useEffect(() => {
@@ -60,7 +60,6 @@ function Home() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Arrows of Teacher section
   const handleTeacherPrev = () => {
     setCurrentTeacherStartIndex((prev) => Math.max(prev - 1, 0));
   };
@@ -83,7 +82,6 @@ function Home() {
   const navigate = useNavigate();
 
   const handleCourseClick = () => {
-    setCourses(courses); // store the course data in context
     navigate("/courses");
   };
 
@@ -93,13 +91,12 @@ function Home() {
   };
 
   const handleKnowMore = () => {
-    setAllTeachers(teachers); // send all teacher data to context
+    setAllTeachers(teachers);
     navigate("/teachers");
   };
 
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-
-  const videoUrl = "https://www.w3schools.com/html/mov_bbb.mp4"; // Replace with your actual MP4 video URL
+  const videoUrl = "https://www.w3schools.com/html/mov_bbb.mp4";
 
   const handlePlayVideo = () => {
     setIsVideoModalOpen(true);
@@ -113,7 +110,7 @@ function Home() {
     if (!isOpen) return null;
 
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 ">
+      <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
         <div className="bg-white rounded-lg overflow-hidden relative w-[90%] max-w-4xl shadow-lg">
           <button
             onClick={onClose}
@@ -133,7 +130,6 @@ function Home() {
   return (
     <>
       <Hero />
-      {/* Courses Section */}
       <section
         className="py-16 bg-cover bg-no-repeat bg-center px-4 sm:px-6 lg:px-8"
         style={{ backgroundImage: `url(${Background})` }}
@@ -149,9 +145,7 @@ function Home() {
             featured offerings below.
           </p>
 
-          {/* Carousel Wrapper */}
           <div className="relative flex items-center">
-            {/* Left Arrow */}
             <button
               onClick={() => handleArrowClick("left")}
               className="absolute left-0 z-10 bg-teal-500 text-white p-3 rounded-full hover:bg-teal-600 transition"
@@ -172,7 +166,6 @@ function Home() {
               </svg>
             </button>
 
-            {/* Cards Grid */}
             <div
               className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-12"
               data-aos="fade-up"
@@ -184,24 +177,23 @@ function Home() {
                 >
                   <div className="overflow-hidden">
                     <img
-                      src={course.image}
+                      src={`http://localhost:5000/${course.image}`}
                       alt={course.title}
                       className="w-full h-48 object-cover transition-transform duration-300 ease-in-out hover:scale-110"
                     />
                   </div>
-
                   <div className="p-5">
                     <h3 className="text-xl font-bold text-gray-800 mb-2">
                       {course.title}
                     </h3>
                     <div className="flex items-center gap-3 mb-2">
                       <img
-                        src={course.trainer.avatar}
-                        alt={course.trainer.name}
+                        src={course.trainer_avatar}
+                        alt={course.trainer_name}
                         className="w-8 h-8 rounded-full"
                       />
                       <span className="text-sm text-gray-600">
-                        by {course.trainer.name}
+                        by {course.trainer_name}
                       </span>
                     </div>
                     <p className="text-sm text-gray-700 mb-4">
@@ -209,10 +201,12 @@ function Home() {
                     </p>
                     <ul className="text-sm text-gray-500 mb-4 space-y-1">
                       <li>
-                        <strong>Posted on:</strong> {course.postedOn}
+                        <strong>Schedule Course on:</strong>{" "}
+                        {course.scheduleCourse}
                       </li>
                       <li>
-                        <strong>Apply before:</strong> {course.applyBefore}
+                        <strong>Apply before Date:</strong>{" "}
+                        {course.applyBeforeDate}
                       </li>
                       <li>
                         <strong>Duration:</strong> {course.duration}
@@ -221,7 +215,7 @@ function Home() {
                         <strong>Fees:</strong> {course.fees}
                       </li>
                       <li>
-                        <strong>Venue:</strong> {course.Venue}
+                        <strong>Venue:</strong> {course.venue}
                       </li>
                     </ul>
                     <button
@@ -235,7 +229,6 @@ function Home() {
               ))}
             </div>
 
-            {/* Right Arrow */}
             <button
               onClick={() => handleArrowClick("right")}
               className="absolute right-0 z-10 bg-teal-500 text-white p-3 rounded-full hover:bg-teal-600 transition"
@@ -257,7 +250,6 @@ function Home() {
             </button>
           </div>
 
-          {/* View All Courses Button */}
           <div className="mt-10 text-center">
             <button
               onClick={handleCourseClick}
@@ -268,7 +260,6 @@ function Home() {
           </div>
         </div>
       </section>
-
       {/* News & Updates Section */}
       <section
         className="py-16 bg-gradient-to-br from-teal-200/60 to-teal-100/40 backdrop-blur-sm"

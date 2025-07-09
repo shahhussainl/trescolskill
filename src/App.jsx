@@ -8,6 +8,8 @@ import Teachers from "./pages/Teachers";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import UploadSlip from "./pages/UploadSlip";
+import AdminLogin from "./components/admin/AdminLogin";
+import AddCourse from "./components/admin/AddCourse";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/upload-slip" element={<UploadSlip />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin/add-course" element={<AddCourse />} />
       </Routes>
     </div>
   );

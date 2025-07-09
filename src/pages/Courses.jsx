@@ -5,16 +5,14 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import ScrollBtn from "../components/ScrollBtn";
 import Footer from "../components/Footer";
-import Background from "../assets/background.png"
+import Background from "../assets/background.png";
 
 function Courses() {
   const navigate = useNavigate();
 
-
   const handleRegister = (courseTitle) => {
-  navigate("/register", { state: { courseTitle } });
-};
-
+    navigate("/register", { state: { courseTitle } });
+  };
 
   const { courses } = useCourseContext();
 
@@ -39,12 +37,12 @@ function Courses() {
               {courses.map((course) => (
                 <div
                   key={course.id}
-                  className="bg-white shadow-md rounded-lg overflow-hidden "
+                  className="bg-white shadow-md rounded-lg overflow-hidden"
                 >
                   <img
-                    src={course.image}
+                    src={`http://localhost:5000/${course.image}`}
                     alt={course.title}
-                    className="w-full h-48 object-cover transition-transform duration-300 ease-in-out hover:scale-110"
+                    className="w-full h-48 object-cover"
                   />
                   <div className="p-5">
                     <h3 className="text-xl font-bold text-gray-800 mb-2">
@@ -52,12 +50,12 @@ function Courses() {
                     </h3>
                     <div className="flex items-center gap-3 mb-2">
                       <img
-                        src={course.trainer.avatar}
-                        alt={course.trainer.name}
+                        src={course.trainer_avatar}
+                        alt={course.trainer_name}
                         className="w-8 h-8 rounded-full"
                       />
                       <span className="text-sm text-gray-600">
-                        by {course.trainer.name}
+                        by {course.trainer_name}
                       </span>
                     </div>
                     <p className="text-sm text-gray-700 mb-4">
@@ -65,21 +63,21 @@ function Courses() {
                     </p>
                     <ul className="text-sm text-gray-500 mb-4 space-y-1">
                       <li>
-                        <strong>Posted on:</strong> {course.postedOn}
+                        <strong>Schedule:</strong> {course.scheduleCourse}
                       </li>
                       <li>
-                        <strong>Apply before:</strong> {course.applyBefore}
+                        <strong>Apply Before:</strong> {course.applyBeforeDate}
                       </li>
                       <li>
                         <strong>Duration:</strong> {course.duration}
                       </li>
                       <li>
+                        <strong>Venue:</strong> {course.venue}
+                      </li>
+                      <li>
                         <strong>Fees:</strong> {course.fees}
                       </li>
                     </ul>
-                    <button className="w-full bg-teal-500 text-white py-2 rounded-md hover:bg-teal-600 transition">
-                      Register Now
-                    </button>
                   </div>
                 </div>
               ))}
