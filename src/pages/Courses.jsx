@@ -8,8 +8,7 @@ import Footer from "../components/Footer";
 import Background from "../assets/background.png";
 
 function Courses() {
-
-    // Format for ScheduleCourse and ApplybeforeDate
+  // Format for ScheduleCourse and ApplybeforeDate
   function formatDateTime(dateString) {
     const options = {
       year: "numeric",
@@ -23,11 +22,10 @@ function Courses() {
     return new Date(dateString).toLocaleString("en-US", options);
   }
 
-  
   const navigate = useNavigate();
 
-  const handleRegister = (courseTitle) => {
-    navigate("/register", { state: { courseTitle } });
+  const handleRegister = (course) => {
+    navigate("/register", { state: { course } });
   };
 
   const { courses } = useCourseContext();
@@ -78,7 +76,7 @@ function Courses() {
                       {course.description}
                     </p>
                     <ul className="text-sm text-gray-500 mb-4 space-y-1">
-                       <li>
+                      <li>
                         <strong>Schedule Course:</strong>{" "}
                         {formatDateTime(course.scheduleCourse)}
                       </li>
@@ -97,7 +95,7 @@ function Courses() {
                       </li>
                     </ul>
                     <button
-                      onClick={handleRegister}
+                      onClick={() => handleRegister(course)}
                       className="w-full bg-teal-500 text-white py-2 rounded-md hover:bg-teal-600 transition"
                     >
                       Register Now

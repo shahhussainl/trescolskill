@@ -8,10 +8,12 @@ import Teachers from "./pages/Teachers";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import UploadSlip from "./pages/UploadSlip";
+import RegistrationForm from "./pages/RegistrationForm";
 import AdminLogin from "./components/admin/AdminLogin";
 import AddCourse from "./components/admin/AddCourse";
 import DeleteCourse from "./components/admin/DeleteCourse";
 import EditCourse from "./components/admin/EditCourse";
+
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/upload-slip" element={<UploadSlip />} />
+        <Route path="/register" element={<RegistrationForm />} />
         {/* APIs endpoints */}
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin/add-course" element={<AddCourse />} />
