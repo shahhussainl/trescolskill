@@ -67,7 +67,11 @@ function AddCourse() {
           { name: "title", label: "Title" },
           { name: "trainer_name", label: "Trainer Name" },
           { name: "description", label: "Description" },
-          { name: "scheduleCourse", label: "Schedule Date", type: "date" },
+          {
+            name: "scheduleCourse",
+            label: "Schedule Date & Time",
+            type: "datetime-local",
+          },
           { name: "applyBeforeDate", label: "Apply Before Date", type: "date" },
           { name: "duration", label: "Duration" },
           { name: "venue", label: "Venue" },
@@ -88,15 +92,26 @@ function AddCourse() {
 
         <div className="mb-4">
           <label className="block mb-1">Course Image</label>
-          <input type="file" onChange={(e) => setImage(e.target.files[0])} required />
+          <input
+            type="file"
+            onChange={(e) => setImage(e.target.files[0])}
+            required
+          />
         </div>
 
         <div className="mb-4">
           <label className="block mb-1">Trainer Avatar</label>
-          <input type="file" onChange={(e) => setTrainerAvatar(e.target.files[0])} required />
+          <input
+            type="file"
+            onChange={(e) => setTrainerAvatar(e.target.files[0])}
+            required
+          />
         </div>
 
-        <button className="bg-green-600 text-white px-4 py-2 rounded" type="submit">
+        <button
+          className="bg-green-600 text-white px-4 py-2 rounded"
+          type="submit"
+        >
           Submit Course
         </button>
       </form>

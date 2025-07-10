@@ -14,6 +14,20 @@ import Hero from "../components/Hero";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
+  // Format for ScheduleCourse and ApplybeforeDate
+  function formatDateTime(dateString) {
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+      timeZone: "Asia/Karachi", // local time
+    };
+    return new Date(dateString).toLocaleString("en-US", options);
+  }
+
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
@@ -188,7 +202,7 @@ function Home() {
                     </h3>
                     <div className="flex items-center gap-3 mb-2">
                       <img
-                        src={course.trainer_avatar}
+                        src={`http://localhost:5000/${course.trainer_avatar}`}
                         alt={course.trainer_name}
                         className="w-8 h-8 rounded-full"
                       />
@@ -201,12 +215,12 @@ function Home() {
                     </p>
                     <ul className="text-sm text-gray-500 mb-4 space-y-1">
                       <li>
-                        <strong>Schedule Course on:</strong>{" "}
-                        {course.scheduleCourse}
+                        <strong>Schedule Course:</strong>{" "}
+                        {formatDateTime(course.scheduleCourse)}
                       </li>
                       <li>
-                        <strong>Apply before Date:</strong>{" "}
-                        {course.applyBeforeDate}
+                        <strong>Apply Before Date:</strong>{" "}
+                        {formatDateTime(course.applyBeforeDate)}
                       </li>
                       <li>
                         <strong>Duration:</strong> {course.duration}

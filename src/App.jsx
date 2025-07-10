@@ -10,6 +10,8 @@ import FAQ from "./pages/FAQ";
 import UploadSlip from "./pages/UploadSlip";
 import AdminLogin from "./components/admin/AdminLogin";
 import AddCourse from "./components/admin/AddCourse";
+import DeleteCourse from "./components/admin/DeleteCourse";
+import EditCourse from "./components/admin/EditCourse";
 
 function App() {
   return (
@@ -24,8 +26,11 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/upload-slip" element={<UploadSlip />} />
+        {/* APIs endpoints */}
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin/add-course" element={<AddCourse />} />
+        <Route path="/admin/courses" element={<DeleteCourse />} />
+        <Route path="/admin/edit-course/:id" element={<EditCourse />} />
       </Routes>
     </div>
   );
