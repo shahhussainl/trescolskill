@@ -15,6 +15,7 @@ function AdminPanel() {
     navigate("/admin/login");
   };
 
+ //Checks if the current path matches the sidebar link to apply an active style
   const isActive = (path) => location.pathname === path;
 
   return (

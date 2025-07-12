@@ -72,9 +72,12 @@ function Courses() {
                         by {course.trainer_name}
                       </span>
                     </div>
-                    <p className="text-sm text-gray-700 mb-4">
-                      {course.description}
-                    </p>
+                    {/* Forala Editor Functionality */}
+                    <div
+                      className="text-sm text-gray-700 mb-4"
+                      dangerouslySetInnerHTML={{ __html: course.description }}
+                    ></div>
+
                     <ul className="text-sm text-gray-500 mb-4 space-y-1">
                       <li>
                         <strong>Schedule Course:</strong>{" "}
