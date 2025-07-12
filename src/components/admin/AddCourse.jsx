@@ -1,8 +1,11 @@
 // src/admin/AddCourse.jsx
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function AddCourse() {
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
     title: "",
     trainer_name: "",
@@ -33,6 +36,31 @@ function AddCourse() {
     formData.append("image", image);
     formData.append("trainer_avatar", trainerAvatar);
 
+    // try {
+    //   const token = localStorage.getItem("token");
+    //   await axios.post("http://localhost:5000/api/courses/add", formData, {
+    //     headers: {
+    //       "Content-Type": "multipart/form-data",
+    //       Authorization: `Bearer ${token}`,
+    //     },
+    //   });
+    //   alert("Course added successfully!");
+    //   setForm({
+    //     title: "",
+    //     trainer_name: "",
+    //     description: "",
+    //     scheduleCourse: "",
+    //     applyBeforeDate: "",
+    //     duration: "",
+    //     venue: "",
+    //     fees: "",
+    //   });
+    //   setImage(null);
+    //   setTrainerAvatar(null);
+    // } catch (err) {
+    //   alert("Failed to add course: " + err.response?.data?.message);
+    // }
+
     try {
       const token = localStorage.getItem("token");
       await axios.post("http://localhost:5000/api/courses/add", formData, {
@@ -42,18 +70,7 @@ function AddCourse() {
         },
       });
       alert("Course added successfully!");
-      setForm({
-        title: "",
-        trainer_name: "",
-        description: "",
-        scheduleCourse: "",
-        applyBeforeDate: "",
-        duration: "",
-        venue: "",
-        fees: "",
-      });
-      setImage(null);
-      setTrainerAvatar(null);
+      navigate("/admin/courses"); 
     } catch (err) {
       alert("Failed to add course: " + err.response?.data?.message);
     }
@@ -109,7 +126,7 @@ function AddCourse() {
         </div>
 
         <button
-          className="bg-green-600 text-white px-4 py-2 rounded"
+          className="bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700"
           type="submit"
         >
           Submit Course

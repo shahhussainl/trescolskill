@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -10,15 +10,15 @@ import FAQ from "./pages/FAQ";
 import UploadSlip from "./pages/UploadSlip";
 import RegistrationForm from "./pages/RegistrationForm";
 import AdminLogin from "./components/admin/AdminLogin";
-import AddCourse from "./components/admin/AddCourse";
-import DeleteCourse from "./components/admin/DeleteCourse";
-import EditCourse from "./components/admin/EditCourse";
-
+import AdminPanel from "./components/admin/AdminPanel";
 
 function App() {
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith("/admin");
+
   return (
     <div className="min-h-screen bg-gray-100">
-      <Navbar />
+      {!isAdminRoute && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -29,11 +29,9 @@ function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/upload-slip" element={<UploadSlip />} />
         <Route path="/register" element={<RegistrationForm />} />
-        {/* APIs endpoints */}
+        {/* Admin routes */}
         <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin/add-course" element={<AddCourse />} />
-        <Route path="/admin/courses" element={<DeleteCourse />} />
-        <Route path="/admin/edit-course/:id" element={<EditCourse />} />
+        <Route path="/admin/*" element={<AdminPanel />} />
       </Routes>
     </div>
   );

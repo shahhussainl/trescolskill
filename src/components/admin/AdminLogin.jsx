@@ -1,4 +1,3 @@
-// src/admin/AdminLogin.jsx
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -16,34 +15,39 @@ function AdminLogin() {
         password,
       });
       localStorage.setItem("token", res.data.token);
-      navigate("/admin/add-course");
+      navigate("/admin");
     } catch (error) {
       alert("Login failed: " + error.response.data.message);
     }
   };
 
   return (
-    <div className="p-10 max-w-md mx-auto mt-20 bg-gray-100 rounded shadow">
-      <h2 className="text-2xl font-bold mb-6">Admin Login</h2>
-      <form onSubmit={handleLogin}>
-        <input
-          className="w-full p-2 mb-4 border"
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          className="w-full p-2 mb-4 border"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button className="bg-blue-500 text-white px-4 py-2 rounded" type="submit">
-          Login
-        </button>
-      </form>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="p-10 w-full max-w-md bg-white rounded shadow-md">
+        <h2 className="text-3xl font-bold mb-6 text-center">Admin Login</h2>
+        <form onSubmit={handleLogin}>
+          <input
+            className="w-full p-2 mb-4 border rounded"
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            className="w-full p-2 mb-4 border rounded"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button
+            className="w-full bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700"
+            type="submit"
+          >
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
