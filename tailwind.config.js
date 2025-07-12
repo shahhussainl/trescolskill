@@ -12,6 +12,7 @@ module.exports = {
         "teal-100": "#E6F0F0",
       },
     },
+    plugins: [require("@tailwindcss/line-clamp")],
   },
   plugins: [],
 };

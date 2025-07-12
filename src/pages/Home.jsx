@@ -212,7 +212,7 @@ function Home() {
                     </div>
                     {/* Forala Editor Functionality */}
                     <div
-                      className="text-sm text-gray-700 mb-4"
+                      className="text-sm text-gray-700 mb-4 line-clamp-3"
                       dangerouslySetInnerHTML={{ __html: course.description }}
                     ></div>
                     <ul className="text-sm text-gray-500 mb-4 space-y-1">
